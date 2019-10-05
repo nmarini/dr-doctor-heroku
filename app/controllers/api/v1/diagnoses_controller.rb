@@ -2,7 +2,7 @@ class Api::V1::DiagnosesController < ApplicationController
     before_action :set_diagnosis, only: [:show, :update, :destroy]
 
     def show 
-        render json: @diagnosis, include: [:user]
+        render json: @diagnosis, include: { :user => {only: :name}}
     end 
 
     def create 
@@ -17,7 +17,7 @@ class Api::V1::DiagnosesController < ApplicationController
 
     def update 
         if @diagnosis.update(diagnosis_params)
-            render json: @diagnosis, include: [:user] 
+            render json: @diagnosis, include: {:user => {only: :name}} 
         else 
             render @diagnosis.errors, status: :unprocessable_entity 
         end 
