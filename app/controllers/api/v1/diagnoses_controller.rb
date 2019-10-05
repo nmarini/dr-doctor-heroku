@@ -34,7 +34,7 @@ class Api::V1::DiagnosesController < ApplicationController
         end 
 
         def diagnosis_params 
-            params.require(:diagnosis).permit(:name, :short_description, :full_description, :medical_conditon, :prof_name, :treatment_description, :possible_symptoms, :specializations => [], :user_note) 
+            params.require(:diagnosis).permit(:name, :short_description, :full_description, :medical_conditon, :prof_name, :treatment_description, :possible_symptoms, :user_note, :specializations => []) 
         end 
 
 end
