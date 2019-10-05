@@ -1,2 +1,2 @@
-class API::V1::DiagnosesController < ApplicationController
+class Api::V1::DiagnosesController < ApplicationController
 end
