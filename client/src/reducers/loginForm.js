@@ -3,7 +3,7 @@ const initialState = {
     password: ""
 }
 
-const loginFormReduer = (state = initialState, action) => {
+const updateLoginFormReducer = (state = initialState, action) => {
     switch (action.type) {
         case "UPDATE_LOGIN_FORM":
             return action.formData
@@ -13,4 +13,4 @@ const loginFormReduer = (state = initialState, action) => {
 
 }
 
-export default loginFormReduer;
+export default updateLoginFormReducer;
