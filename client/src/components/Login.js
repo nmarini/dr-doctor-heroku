@@ -1,27 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Login extends Component {
+const Login = () => {
+    return (
+        <form onSubmit={this.handleSubmit}>
+            <input 
+                type="text"
+                placeholder="email"
+                onChange={this.handleChange}
+                name="email"
+                value={}
+            />
+            <input 
+                type="text"
+                placeholder="password"
+                onChange={this.handleChange}
+                name="password"
+                value={}
+            />
+            <input 
+                type="submit"
+                value="Log In"
+            />
+        </form>
 
-    constructor() {
-        this.state = {
-            email: '',
-            password: ''
-        }
-    }
-
-    handleSubmit = () => {
-        
-    }
-
-    render() {
-        return (
-            <div>
-                <form onSubmit={this.handleSubmit}>
-
-                </form>
-            </div>
-        )
-    }
-};
+    )
+}
 
 export default Login;
