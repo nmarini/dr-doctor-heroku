@@ -1,3 +1,5 @@
-diagnosis = Diagnosis.create( name: 'Chicken Pox', short_description: 'you get itchy', full_description: 'you get realllyyyyyyy ithcy', medical_condition: 'its not fun....', prof_name: 'itchy itchy red spots', treatment_description: 'dont itch', possible_symptoms: ['itchy', 'red spots'], specializations: ['general', 'skin'], user_note: "let's get this fixed!")
 user = User.create(name: "nick", email: 'nick.com', password: 'password', birthday_year: 1990, sex: 'male')
-user.diagnoses << diagnosis
+diagnosis = Diagnosis.create( name: 'Chicken Pox', short_description: 'you get itchy', full_description: 'you get realllyyyyyyy ithcy', medical_condition: 'its not fun....', prof_name: 'itchy itchy red spots', treatment_description: 'dont itch', possible_symptoms: ['itchy', 'red spots'], specializations: ['general', 'skin'], user_note: "let's get this fixed!", user_id: 1)
+
+user = User.create(name: "bob", email: 'bob.com', password: 'password', birthday_year: 1990, sex: 'male')
+diagnosis = Diagnosis.create( name: 'Flu', short_description: 'you get sneezy and hot', full_description: 'you get realllyyyyyyy sneezy and hot', medical_condition: 'its not fun....', prof_name: 'flu flu cry cry', treatment_description: 'dont itch', possible_symptoms: ['itchy', 'red spots'], specializations: ['general', 'skin'], user_note: "let's get this fixed!", user_id: 2)

@@ -20,7 +20,7 @@ export const login = credentials => {
         }).then(res => res.json())
             .then( user => {
                     if (user.error) {
-                        alert(user.error)
+                        alert(user.errors)
                     } else {
                         dispatch(setCurrentUser(user))
                     }
