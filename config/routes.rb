@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  post "/api/v1/login", to: "sessions#create"
+  post "/api/v1/login", to: "api/vi/sessions#create"
 
   namespace :api do 
     namespace :v1 do 
