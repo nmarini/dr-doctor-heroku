@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getCurrentUser } from './actions/currentUser.js'
+import { getCurrentUser } from './actions/currentUser.js';
+import Login from './components/Login.js'
 
 
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        React App
+        <Login />
       </div>
     );
   }
