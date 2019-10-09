@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { updateLoginForm } from  '../actions/loginForm.js'
 import { login } from  '../actions/currentUser.js'
 
-const Login = ({email, password, updateLoginForm, login, loginForm}) => {
+const Login = ({updateLoginForm, login, loginForm}) => {
     
     const handleChange = event => {
         const {name, value } = event.target;
