@@ -1,12 +1,14 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { logout } from './actions/currentUse.js'
 
-const Logout = () => {
+const Logout = ({ logout }) => {
 
     return (
-        <div>
-
-        </div>
+        <form onSubmit={logout}>
+            <input type="submit" value="Log Out" />
+        </form>
     )
 }
 
-export default Logout; 
+export default connect(null, { logout })(Logout); 
