@@ -29,8 +29,25 @@ export const login = credentials => {
     }
 }
 
+export const clearCurrentUser = () => {
+    return {
+        type: "CLEAR_CURRENT_USER"
+    }
+}
+
+export const logout = () => {
+    return (dispatch) => {
+        dispatch(clearCurrentUser())
+        return fetch("http://localhost:3000/api/v1/logout", {
+            credentials: "include",
+            method: "DELETE"
+
+        })
+    }
+}
+
 export const getCurrentUser = () => {
-    return dispatch => {
+    return dispatch => { 
         return fetch("http://localhost:3000/api/v1/get_current_user", {
             credentials: "include",
             method: "GET",
