@@ -2,8 +2,30 @@
     text-align: center;
 }
 
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+.row {
+    margin: auto;
+    width: auto;
+    border: 3px solid blue;
+    padding: 10px;
+    float: center;
+    text-align: center;
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .NavBar {
-    display: flex;
-    flex-direction: row;
     color: blue;
+}
+
+.button {
+    background-color: #008CBA;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 2px solid blue;
 }
