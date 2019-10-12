@@ -11,8 +11,10 @@ const NavBar = ({currentUser}) => {
         return (
             <div className="NavBar">
                 <NavLink to='/'>Home Page</NavLink>
-                {/* { currentUser ? <strong>Welcome, {currentUser.name} </strong> : ""}
-                { currentUser ? <Logout/> : <Login/>} */}
+                <NavLink to='/userProfile'>User's Profile</NavLink>
+                <NavLink to='/completeDiagnosisList'>Complete Diagnosis List</NavLink>
+                { currentUser ? <strong>Welcome, {currentUser.name} </strong> : ""}
+                { currentUser ? <Logout/> : <Login/>}
             </div>
         )
 }

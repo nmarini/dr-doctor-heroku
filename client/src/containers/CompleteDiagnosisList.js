@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DiagnosisContainer from './DiagnosisContainer.js;';
+import DiagnosisContainer from './DiagnosisContainer';
 
 class CompleteDiagnosisList extends Component {
 

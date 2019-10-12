@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import DiagnosisList from '../components/DiagnosisList.js;';
-import DiagnosisCard from '../components/DiagnosisCard.js;';
+import DiagnosisList from '../components/DiagnosisList';
+import DiagnosisCard from '../components/DiagnosisCard';
 
 class DiagnosisContainer extends Component {
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import UserCard from '../components/UserCard.js'
-import DiagnosisContainer from './DiagnosisContainer.js'
+import UserCard from '../components/UserCard'
+import DiagnosisContainer from './DiagnosisContainer'
 
 
 class UserProfile extends Component {
