@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import UserProfile from './containers/UserProfile.js';
 import CompleteDiagnosisList from './containers/CompleteDiagnosisList.js';
+import HomePage from './containers/HomePage.js';
 import NavBar from './components/NavBar.js';
 
 class App extends Component {

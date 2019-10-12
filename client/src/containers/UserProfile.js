@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import UserCard from './components/UserProfile.js'
-import DiagnosisDiagnosisContainer from './containers/DiagnosisDiagnosisContainer.js'
+import UserCard from '../components/UserCard.js'
+import DiagnosisContainer from './DiagnosisContainer.js'
 
 
 class UserProfile extends Component {
@@ -9,7 +9,7 @@ class UserProfile extends Component {
     render() {
         return (
             <div>
-
+                User Profile
                 <UserCard />
                 <DiagnosisContainer />
 

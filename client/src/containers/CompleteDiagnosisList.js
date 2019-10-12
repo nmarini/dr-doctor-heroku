@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import DiagnosisContainer from './containers/DiagnosisContainer.js;';
+import DiagnosisContainer from './DiagnosisContainer.js;';
 
 class CompleteDiagnosisList extends Component {
 
     render() {
         return (
-            <div>
+            <div>   
+                Complete Diagnosis List
 
                 <DiagnosisContainer />
 

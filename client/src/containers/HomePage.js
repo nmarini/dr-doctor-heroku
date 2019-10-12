@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import DiagnosisForm from './components/DiagnosisForm.js;';
-import DiagnosisContainer from './containers/DiagnosisContainer.js;';
+import DiagnosisContainer from './DiagnosisContainer.js;';
+import DiagnosisForm from '../components/DiagnosisForm.js;';
 
 class HomePage extends Component {
 
     render() {
         return (
             <div>
-
+                HomePage
                 <DiagnosisForm />
                 <DiagnosisContainer />
 
