@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
-import Login from './components/Login.js';
-import Logout from './components/Logout.js';
-import NavBar from './components/NavBar.js'
-import MainContainer from './containers/MainContainer'
-
+import UserProfile from './containers/UserProfile.js';
+import CompleteDiagnosisList from './containers/CompleteDiagnosisList.js';
+import NavBar from './components/NavBar.js';
 
 class App extends Component {
 
@@ -16,10 +15,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-       <NavBar />
-       <MainContainer />
-      </div>
+      <Router>
+        <div className="App">
+          <NavBar />
+          <Route exact path='/' component={HomePage} />
+          <Route exact path='/userProfile' component={UserProfile} />
+          <Route exact path='/completeDiagnosisList' component={CompleteDiagnosisList} />
+        </div>
+      </Router>
     );
   }
 }
