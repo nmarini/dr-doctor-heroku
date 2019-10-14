@@ -3,12 +3,14 @@ import { connect } from 'react-redux';
 
 class DiagnosisForm extends Component {
 
-    // constructor() {
-    //     this.state = {
-    //         sex: currentUser.sex,
-    //         birthdayYear: currentUser.birthday_year
-    //     }
-    // }
+    constructor(props) {
+        super(props)
+        this.state = {
+            sex: this.props.currentUser.sex,
+            birthdayYear: this.props.currentUser.birthday_year,
+            symptoms: []
+        }
+    }
 
     handleOnSubmit = () => {
 
@@ -23,15 +25,15 @@ class DiagnosisForm extends Component {
             <form onSubmit={this.handleOnSubmit}>
                 <input 
                     type="text"  
-                    onChange={this.handleChange}
+                    onChange={this.handleOnChange}
                     name="sex"
-                    value={this.props.currentUser.sex}
+                    value={this.state.sex}
                 />
                 <input 
                     type="text"  
-                    onChange={this.handleChange}
+                    onChange={this.handleOnChange}
                     name="birthdayYear"
-                    value={this.props.currentUser.birthday_year}
+                    value={this.state.birthdayYear}
                 />
                 
             </form>
