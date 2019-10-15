@@ -12,8 +12,14 @@ class DiagnosisForm extends Component {
         }
     }
 
-    handleOnSubmit = () => {
+    componentDidMount() {
+        fetch(`https://healthservice.priaid.ch/symptoms?token=${process.env.REACT_APP_TOKEN}/&language=en-gb`)
+        .then(resp => resp.json())
+        .then(symp => console.log(symp))
+    }
 
+    handleOnSubmit = () => {
+ 
     }
 
     handleOnChange = event => {
@@ -38,7 +44,7 @@ class DiagnosisForm extends Component {
                 />
                 
             </form>
-                {console.log(process.env.REACT_APP_TOKEN)}
+                
             </div>
         )
     }
