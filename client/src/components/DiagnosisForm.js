@@ -13,9 +13,12 @@ class DiagnosisForm extends Component {
     }
 
     componentDidMount() {
-        fetch(`https://healthservice.priaid.ch/symptoms?token=${process.env.REACT_APP_TOKEN}/&language=en-gb`)
+        fetch(`https://healthservice.priaid.ch/symptoms?token=${process.env.REACT_APP_TOKEN}&language=en-gb`)
         .then(resp => resp.json())
         .then(symp => console.log(symp))
+
+        // Token created here:
+        // https://authservice.priaid.ch/docs.html
     }
 
     handleOnSubmit = () => {
