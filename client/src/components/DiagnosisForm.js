@@ -22,6 +22,7 @@ class DiagnosisForm extends Component {
 
     render() {
         return (
+            <div>
             <form onSubmit={this.handleOnSubmit}>
                 <input 
                     type="text"  
@@ -37,6 +38,8 @@ class DiagnosisForm extends Component {
                 />
                 
             </form>
+                {console.log(process.env.REACT_APP_TOKEN)}
+            </div>
         )
     }
 }
