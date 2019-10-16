@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import CryptoJS from "react-native-crypto-js";
+
 
 class DiagnosisForm extends Component {
 
@@ -8,17 +10,37 @@ class DiagnosisForm extends Component {
         this.state = {
             sex: this.props.currentUser.sex,
             birthdayYear: this.props.currentUser.birthday_year,
-            symptoms: []
+            symptoms: [],
+            token: ""
         }
     }
 
-    componentDidMount() {
-        fetch(`https://healthservice.priaid.ch/symptoms?token=${process.env.REACT_APP_TOKEN}&language=en-gb`)
-        .then(resp => resp.json())
-        .then(symp => console.log(symp))
+    // componentDidMount() {
 
-        // Token created here:
-        // https://authservice.priaid.ch/docs.html
+    //     const hashedCredentials = CryptoJS.AES.encrypt(`f7D3NkZo95Wdr4A6R`, 'https://authservice.priaid.ch/login').toString();
+    //     const computedHashString = hashedCredentials.toString(CryptoJS.enc.Base64)
+         
+    //         fetch("https://authservice.priaid.ch/login?format=json", {
+	//             method: "POST",
+	//             headers: {
+	//         	"Host": "authservice.priaid.ch",
+	//         	"Authorization": `Bearer ${process.env.REACT_APP_TOKEN}`
+	//         }
+    //     }).then(response => console.log(response))
+     
+    //     // Token created here: 
+    //     // https://authservice.priaid.ch/docs.html
+    // }
+
+    componentDidMount() { 
+        fetch("https://priaid-symptom-checker-v1.p.rapidapi.com/symptoms?format=json&language=en-gb", {
+            "method": "GET",
+            "headers": {
+                "x-rapidapi-host": "priaid-symptom-checker-v1.p.rapidapi.com",
+                "x-rapidapi-key": `9727d28617msh6ffacb1f937a09fp1e5600jsne238b2a6d151`
+            }
+        })
+        .then(response => response.json()).then(res => console.log(res))
     }
 
     handleOnSubmit = () => {
