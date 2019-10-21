@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import DiagnosisContainer from './DiagnosisContainer';
-import DiagnosisForm from '../components/DiagnosisForm';
+import DoctorContainer from './DoctorContainer';
+import DoctorSearch from '../components/DoctorSearch';
 import Signup from '../components/Signup';
 
 class HomePage extends Component {
 
-    ShowForm = () => (
+    ShowSearch = () => (
         <div>
-            <DiagnosisForm />
-            <DiagnosisContainer />
+            <DoctorSearch />
+            <DoctorContainer />
         </div>
     )
 
@@ -18,7 +18,7 @@ class HomePage extends Component {
             <div>
                 HomePage
 
-                {this.props.currentUser ? this.ShowForm() : <Signup />}
+                {this.props.currentUser ? this.ShowSearch() : <Signup />}
 
                 
 

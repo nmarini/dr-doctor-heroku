@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import Login from './Login.js';
 import Logout from './Logout.js';
 import Signup from './Signup.js';
+import CompleteDoctorList from '../containers/CompleteDoctorList.js';
 
 
 const NavBar = ({currentUser}) => {
@@ -12,7 +13,7 @@ const NavBar = ({currentUser}) => {
         <div className="row">
             <div className="column"><NavLink to='/'>Home Page</NavLink></div>
             <div className="column"><NavLink to='/userProfile'>User's Profile</NavLink></div>
-            <div className="column"><NavLink to='/completeDiagnosisList'>Complete Diagnosis List</NavLink></div>
+            <div className="column"><NavLink to='/completeDoctorList'>Complete Doctor List</NavLink></div>
         </div>
     )
 

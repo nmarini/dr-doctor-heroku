@@ -1,5 +1,5 @@
-user = User.create(name: "nick", email: 'nick.com', password: 'password', birthday_year: 1990, sex: 'male')
-diagnosis = Diagnosis.create( name: 'Chicken Pox', short_description: 'you get itchy', full_description: 'you get realllyyyyyyy ithcy', medical_condition: 'its not fun....', prof_name: 'itchy itchy red spots', treatment_description: 'dont itch', possible_symptoms: ['itchy', 'red spots'], specializations: ['general', 'skin'], user_note: "let's get this fixed!", user_id: 1)
+user1 = User.create(name: "nick", email: 'nick.com', password: 'password')
+doctor1 = Doctor.create( first_name: "Nick", last_name: "Marini", title: "General Sergeon", image_url: "...", bio: "Good Doc!", user_note: "let's get this fixed!", user_id: 1)
 
-user = User.create(name: "bob", email: 'bob.com', password: 'password', birthday_year: 1990, sex: 'male')
-diagnosis = Diagnosis.create( name: 'Flu', short_description: 'you get sneezy and hot', full_description: 'you get realllyyyyyyy sneezy and hot', medical_condition: 'its not fun....', prof_name: 'flu flu cry cry', treatment_description: 'dont itch', possible_symptoms: ['itchy', 'red spots'], specializations: ['general', 'skin'], user_note: "let's get this fixed!", user_id: 2)
+user2 = User.create(name: "bob", email: 'bob.com', password: 'password')
+doctor2 = Doctor.create( first_name: "Bob", last_name: "Smith", title: "Foot Doctor", image_url: "..", bio: "Pretty good", user_note: "let's get this fixed!", user_id: 2)

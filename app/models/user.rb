@@ -1,5 +1,5 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :diagnoses
-    validates :name, :email, :password, :birthday_year, :sex, presence: true
+    has_many :doctors
+    validates :name, :email, :password, presence: true
 end

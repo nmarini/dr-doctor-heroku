@@ -2,7 +2,7 @@ class Api::V1::UsersController < ApplicationController
     before_action :set_user, only: [:show, :update, :destroy]
 
     def show 
-        render json: @user, include: [:diagnoses]
+        render json: @user, include: [:doctors]
     end 
 
     def create 
@@ -17,7 +17,7 @@ class Api::V1::UsersController < ApplicationController
 
     def update 
         if @user.update(user_params)
-            render json: @user, include: [:diagnoses] 
+            render json: @user, include: [:doctors] 
         else 
             render @user.errors, status: :unprocessable_entity 
         end 
