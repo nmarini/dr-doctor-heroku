@@ -2,9 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import UserCard from '../components/UserCard'
 import DoctorContainer from './DoctorContainer'
+import { getCurrentUser } from '../actions/currentUser'
 
 
 class UserProfile extends Component {
+
+    componentDidMount() {
+        this.props.getCurrentUser();
+    }
 
     render() {
         return (
@@ -18,4 +23,10 @@ class UserProfile extends Component {
     }
 }
 
-export default UserProfile; 
+const mapStateToProps = ({currentUser}) => {
+    return {
+        currentUser
+    }
+}
+
+export default connect(mapStateToProps, {getCurrentUser})(UserProfile); 

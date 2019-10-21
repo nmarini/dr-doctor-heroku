@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import DoctorList from '../components/DoctorList';
-import DoctorCard from '../components/DoctorCard';
 
 class DoctorContainer extends Component {
 
     render() {
         return (
             <div>
-                <DoctorList /> 
-                <DoctorCard /> 
-
+                <DoctorList doctors={this.props.doctors}/> 
             </div>
         )
     }
 }
 
-export default DoctorContainer; 
+const mapStateToProps = ({doctors}) => {
+    return {
+        doctors
+    }
+}
+
+export default connect(mapStateToProps)(DoctorContainer); 

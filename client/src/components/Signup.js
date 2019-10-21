@@ -2,6 +2,14 @@ import React from 'react';
 
 const Signup = () => {
 
+    const handleChange = (event) => {
+
+    }
+
+    const handleSubmit = () => {
+
+    }
+
     return (
         <div>
             Sign Up
@@ -11,14 +19,7 @@ const Signup = () => {
                 placeholder="email"
                 onChange={handleChange}
                 name="email"
-                value={loginForm.email}
-            />
-            <input 
-                type="text"
-                placeholder="password"
-                onChange={handleChange}
-                name="password"
-                value={loginForm.password}
+                // value={}
             />
             <input 
                 type="submit"
