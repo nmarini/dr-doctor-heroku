@@ -16,7 +16,8 @@ const DoctorCard = (doctor) => {
     return (
         <div>
             <h1>Doctor Card</h1>
-            Dr. {doctor.last_name}
+            Dr. {doctor.profile.last_name}
+            <img src={doctor.profile.image_url} />
             <button onKeyUp={createDoctor} >Save</button> 
 
         </div>

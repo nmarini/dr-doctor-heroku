@@ -4,15 +4,35 @@ import DoctorList from '../components/DoctorList';
 
 class DoctorContainer extends Component {
 
-    showList = (doctors) => {
-        return doctors !== null ? <DoctorList doctors={doctors}/> : "loading..."
-        console.log(doctors)
-    }
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         exposeList: false,
+    //         loaded: false
+    //     }
+    // }
+
+    showList = (doctors) => <DoctorList doctors={doctors}/> 
+
+    // handleClick = () => {
+    //     let newState = this.state.exposeList ? false : true
+    //     this.setState({
+    //         exposeList: newState
+    //     })
+    // }
+
+    // componentDidMount() {
+    //     this.setState({
+    //         loaded: true
+    //     })
+    // }
+
+
 
     render() {
         return (
             <div>
-                {this.showList(this.props.doctors)}
+                {this.props.doctors === null ? 'still loading...' : this.showList(this.props.doctors)}
             </div>
         )
     }
