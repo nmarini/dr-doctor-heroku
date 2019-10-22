@@ -19,7 +19,6 @@ export const saveDoctor = (currentUser, doctor) => {
 export const getDoctors = () => {
 
     let api_key = `${process.env.REACT_APP_API_KEY}`; 
-    console.log(api_key)
     let resource_url = 'https://api.betterdoctor.com/2016-03-01/doctors?location=37.773,-122.413,100&skip=2&limit=100&user_key=' + api_key;
 
     return dispatch => {

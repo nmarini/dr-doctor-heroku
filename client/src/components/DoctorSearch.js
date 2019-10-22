@@ -19,7 +19,7 @@ class DoctorSearch extends Component {
         return (
             <div>
             <form onSubmit={this.handleOnSubmit}>
-                <input 
+                {/* <input 
                     type="text"  
                     onChange={this.handleOnChange}
                     name="sex"
@@ -30,7 +30,7 @@ class DoctorSearch extends Component {
                     onChange={this.handleOnChange}
                     name="birthdayYear"
                     value={this.state.birthdayYear}
-                />
+                /> */}
                 
             </form>
                 

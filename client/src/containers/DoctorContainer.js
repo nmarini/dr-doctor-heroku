@@ -4,10 +4,15 @@ import DoctorList from '../components/DoctorList';
 
 class DoctorContainer extends Component {
 
+    showList = (doctors) => {
+        return doctors !== null ? <DoctorList doctors={doctors}/> : "loading..."
+        console.log(doctors)
+    }
+
     render() {
         return (
             <div>
-                <DoctorList doctors={this.props.doctors}/> 
+                {this.showList(this.props.doctors)}
             </div>
         )
     }

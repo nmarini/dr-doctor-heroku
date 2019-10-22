@@ -20,6 +20,8 @@ const Login = ({updateLoginForm, login, loginForm}) => {
     }
 
     return (
+        <div>
+        Log In
         <form onSubmit={handleSubmit}>
             <input 
                 type="text"
@@ -40,6 +42,7 @@ const Login = ({updateLoginForm, login, loginForm}) => {
                 value="Log In"
             />
         </form>
+        </div>
 
     )
 }
