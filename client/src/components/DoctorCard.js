@@ -14,14 +14,14 @@ const DoctorCard = ({doctor}) => {
     }
 
     const getSpecialties = () => (
-        doctor.specialties.map(specialty => (
-            <li>{specialty.name}: {specialty.description}</li>
+        doctor.specialties.map((specialty, index) => (
+            <li key={index}>{specialty.name}: {specialty.description}</li>
         ))
     )
 
     const getPractices = () => (
-        doctor.practices.map(practice => 
-            <li>
+        doctor.practices.map((practice, index) => 
+            <li key={index}>
                 {practice.name}
             <br/>
                 {practice.accepts_new_patients ? "Accepting New Patients" : "NOT Accepting New Patients"}
@@ -32,17 +32,12 @@ const DoctorCard = ({doctor}) => {
     )
 
     const getInsurances = () => (
-        doctor.insurances.map(insurance => 
-            <table>
-                <tr>
-                    <th>Insurance Plan</th>
-                    <th>Insurance Provider</th>
-                </tr>
-                <tr>
+            doctor.insurances.map((insurance, index) => (
+                <div key={index}>
                     <td>{insurance.insurance_plan}</td>
                     <td>{insurance.insurance_provider}</td>
-                </tr>
-            </table>
+                </div>
+            )
         )
     )
 
@@ -52,7 +47,7 @@ const DoctorCard = ({doctor}) => {
             <img src={doctor.profile.image_url} />
             <div className="DoctorCardProfile">
                 
-            </div>
+            </div> 
             <div className="row">
                 <div className="column">
                 <h5>Specialties:</h5>
@@ -62,7 +57,19 @@ const DoctorCard = ({doctor}) => {
                 </div>
                 <div className="column">
                 <h5>Accepted Insurances:</h5>
-                <ul>{getInsurances()}</ul>
+                <table>
+                    <thead>
+                <tr>
+                    <th>Insurance Plan</th>
+                    <th>Insurance Provider</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    {getInsurances()}
+                </tr>
+                </tbody>
+            </table>
                 </div>
             </div>
             
