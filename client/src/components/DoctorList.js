@@ -10,17 +10,21 @@ class DoctorList extends Component {
         }
     }
     
+    componentDidMount() {
+        
+    }
     
 
-    listDoctors = () => {
-        return this.props.doctors.map(doctor => <button key={doctor.uid} value={doctor} onClick={this.handleClick}>Dr. {doctor.profile.last_name}</button>)
-    }
+    listDoctors = () => this.props.doctors.map(doctor => 
+        <button key={doctor.uid} value={doctor.uid} onClick={this.handleClick}>Dr. {doctor.profile.last_name}</button>
+        )
 
     handleClick = event => {
-        let doctor = event.target 
-        this.setState = {
+        let doctorUid = event.target.value 
+        let doctor = this.props.doctors.find(doctor => doctor.uid === doctorUid)
+        this.setState({
             selectedDoctor: doctor
-        }
+        })
         
     }
 
@@ -28,7 +32,7 @@ class DoctorList extends Component {
         return (
             <div>
                 <h4 className="doctorContainerCard">
-                    {this.state.selectedDoctor ? <DoctorCard doctor={this.state.selectedDoctor}/> : 'Select a Doctor'}
+                    {this.state.selectedDoctor === null ? 'Select a Doctor' : <DoctorCard doctor={this.state.selectedDoctor}/>}
                 </h4>
                 <div className="doctorContainerList">
                     {this.listDoctors()}
@@ -37,11 +41,5 @@ class DoctorList extends Component {
         )
     }
 }
-
-// const mapStateToProps = ({doctors}) => {
-//     return {
-//         doctors
-//     }
-// }
 
 export default DoctorList; 
