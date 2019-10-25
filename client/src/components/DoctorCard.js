@@ -51,11 +51,11 @@ const DoctorCard = ({doctor}) => {
             <div className="row">
                 <div className="column">
                 <h5>Specialties:</h5>
-                <ul>{getSpecialties()}</ul>
-                <h5>Practices:</h5>
-                <ul>{getPractices()}</ul>
+                {getSpecialties()}
                 </div>
                 <div className="column">
+                <h5>Practices:</h5>
+                {getPractices()}
                 </div>
             </div>
             
@@ -79,33 +79,16 @@ const DoctorCard = ({doctor}) => {
 
     )
 
+    const profile = doctor.profile || null
+
     return (
-        <div>
+        <>
             DoctorCard
-            {doctor.profile ? console.log(true) : console.log(false)}
-        {console.log(doctor)}
-        </div>
+            {profile === null ? userDoctor() : doctorDoctor()}
+      
+        </>
         // typeof doctor.profile === undefined ? userDoctor() : doctorDoctor()
-        // <div>
-        //     <h1>Dr. {doctor.profile.last_name}</h1>
-        //     <img src={doctor.profile.image_url} />
-        //     <div className="DoctorCardProfile">
-                
-        //     </div> 
-        //     <div className="row">
-        //         <div className="column">
-        //         <h5>Specialties:</h5>
-        //         {getSpecialties()}
-        //         </div>
-        //         <div className="column">
-        //         <h5>Practices:</h5>
-        //         {getPractices()}
-        //         </div>
-        //     </div>
-            
-        //     <button onKeyUp={createDoctor} >Save Profile</button> 
-        //     {console.log(doctor)}
-        // </div>
+        
     )
 }
 
