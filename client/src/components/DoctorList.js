@@ -16,7 +16,7 @@ class DoctorList extends Component {
     
 
     listDoctors = () => this.props.doctors.map(doctor => 
-        <button key={doctor.uid} value={doctor.uid} onClick={this.handleClick}>Dr. {doctor.profile.last_name}</button>
+        <li key={doctor.uid}>Dr. {doctor.profile.last_name} <button value={doctor.uid} onClick={this.handleClick}>give me the news!</button></li>
         )
 
     handleClick = event => {

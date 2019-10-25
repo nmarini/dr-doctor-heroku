@@ -33,10 +33,10 @@ const DoctorCard = ({doctor}) => {
 
     const getInsurances = () => (
             doctor.insurances.map((insurance, index) => (
-                <div key={index}>
+                <tr>
                     <td>{insurance.insurance_plan}</td>
                     <td>{insurance.insurance_provider}</td>
-                </div>
+                </tr>
             )
         )
     )
@@ -56,7 +56,7 @@ const DoctorCard = ({doctor}) => {
                 <ul>{getPractices()}</ul>
                 </div>
                 <div className="column">
-                <h5>Accepted Insurances:</h5>
+                {/* <h5>Accepted Insurances:</h5>
                 <table>
                     <thead>
                 <tr>
@@ -65,15 +65,15 @@ const DoctorCard = ({doctor}) => {
                 </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    {getInsurances()}
-                </tr>
+                
+                 {getInsurances()} 
+                
                 </tbody>
-            </table>
+            </table> */}
                 </div>
             </div>
             
-            <button onKeyUp={createDoctor} >Save</button> 
+            <button onKeyUp={createDoctor} >Save Profile</button> 
             {console.log(doctor)}
         </div>
     )

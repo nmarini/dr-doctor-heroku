@@ -16,11 +16,8 @@ class HomePage extends Component {
     render() {
         return (
             <div>
-                HomePage
-
-                {this.props.currentUser ? this.ShowSearch() : <Signup />}
-
                 
+                {this.props.currentUser ? this.ShowSearch() : <div>-or- <Signup /></div>}
 
             </div>
         )

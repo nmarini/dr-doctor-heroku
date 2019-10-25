@@ -13,15 +13,17 @@ const NavBar = ({currentUser}) => {
         <div className="row">
             <div className="column"><NavLink to='/'>Home Page</NavLink></div>
             <div className="column"><NavLink to='/userProfile'>User's Profile</NavLink></div>
-            <div className="column"><NavLink to='/doctorList'>Doctor List</NavLink></div>
+            {/* <div className="column"><NavLink to='/doctorList'>Doctor List</NavLink></div> */}
+            <div className="column"><Logout/></div>
         </div>
     )
 
         return (
             <div className="NavBar">
                 <div>
-                    { currentUser ? <strong>Welcome, {currentUser.name} </strong> : ""}
-                    <div>{ currentUser ? <Logout/> : <Login/>}</div>
+                    { currentUser ? <strong>Welcome, {currentUser.name} </strong> : null}
+                    {/* <div>{ currentUser ? <Logout/> : <Login/>}</div> */}
+                    <div>{ currentUser ? null : <Login/>}</div>
                 </div>
                 {currentUser ? loggedIn() : ""}
             </div>
