@@ -3,15 +3,31 @@
     background-color: #d5f4e6;
 }
 
-.column {
+.main-title {
+    color: #008CBA;
+    text-align: center;
+    background-color: #d5f4e6;
+    margin: auto;
+    width: auto;
+    border: 3px solid #015875;
+    padding: 10px;
+    float: center;
+}
+
+.italic-p {
+    font-style: italic;
+    font-family: "Courier New", Monospace;
+}
+
+.NavColumn {
     float: left;
     width: 33.33%;
 }
 
-.row {
+.NavRow {
     margin: auto;
     width: auto;
-    border: 3px solid blue;
+    border: 3px solid #015875;
     padding: 10px;
     float: center;
     text-align: center;
@@ -21,18 +37,22 @@
 }
 
 .NavBar {
-    color: blue;
+    color: #008CBA;
+}
+
+.NavLogout {
+    clear: both;
 }
 
 .button {
-    background-color: #008CBA;
+    background-color: #7ac3ff;
     font-size: 15px;
     border-radius: 12px;
-    border: 2px solid blue;
+    border: 2px solid #015875;
 }
 
 .DoctorCardProfile {
-
+    background-color: #93d9b3;
 }
 
 .row:after {

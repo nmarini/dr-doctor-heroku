@@ -10,11 +10,11 @@ import Signup from './Signup.js';
 const NavBar = ({currentUser}) => {
 
     const loggedIn = () => (
-        <div className="row">
-            <div className="column"><NavLink to='/'>Home Page</NavLink></div>
-            <div className="column"><NavLink to='/userProfile'>User's Profile</NavLink></div>
-            {/* <div className="column"><NavLink to='/doctorList'>Doctor List</NavLink></div> */}
-            <div className="column"><Logout/></div>
+        <div className="NavRow">
+            <div className="NavColumn"><NavLink to='/'><button className="button">Home Page</button></NavLink></div>
+            <div className="NavColumn"><NavLink to='/userProfile'><button className="button" >User's Profile</button></NavLink></div>
+            {/* <div className="NavColumn"><NavLink to='/doctorList'>Doctor List</NavLink></div> */}
+            <div className="NavLogout"><Logout/></div>
         </div>
     )
 

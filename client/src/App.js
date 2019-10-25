@@ -20,6 +20,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+        <div className="main-title">
+        <h1>Dr. Doctor</h1>
+        <p className="italic-p">Helping you find the doctor you need</p>
+        </div>
           <NavBar />
           <Route exact path='/' component={HomePage} />
           <Route exact path='/userProfile' component={UserProfile} />
