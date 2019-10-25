@@ -21,7 +21,7 @@
 
 .NavColumn {
     float: left;
-    width: 33.33%;
+    width: 50%;
 }
 
 .NavRow {
@@ -29,11 +29,11 @@
     width: auto;
     border: 3px solid #015875;
     padding: 10px;
-    float: center;
+    /* float: center; */
     text-align: center;
-    content: "";
-    display: table;
-    clear: both;
+    /* content: ""; */
+    /* display: table; */
+    /* clear: both; */
 }
 
 .NavBar {
@@ -64,4 +64,9 @@
 .column {
     float: left;
     width: 50%;
+}
+
+.accepting-patients {
+    color: red;
+    font-style: italic;
 }
