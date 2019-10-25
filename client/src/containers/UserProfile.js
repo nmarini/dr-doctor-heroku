@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import UserCard from '../components/UserCard'
-import DoctorContainer from './DoctorContainer'
+import DoctorList from '../components/DoctorList'
 import { getCurrentUser } from '../actions/currentUser'
 
 
@@ -16,8 +16,8 @@ class UserProfile extends Component {
             <div>
                 User Profile
                 <UserCard />
-                <DoctorContainer />
-
+                {this.props.currentUser ? <DoctorList doctors={this.props.currentUser.doctors} /> :  'still loading...'}
+                    {/* {this.props.currentUser ? console.log(this.props): console.log(null)} */}
             </div>
         )
     }

@@ -12,7 +12,7 @@ class DoctorContainer extends Component {
     //     }
     // }
 
-    showList = (doctors) => <DoctorList doctors={doctors}/> 
+    // showList = (doctors) => <DoctorList doctors={doctors}/> 
 
     // handleClick = () => {
     //     let newState = this.state.exposeList ? false : true
@@ -32,7 +32,8 @@ class DoctorContainer extends Component {
     render() {
         return (
             <div>
-                {this.props.doctors === null ? 'still loading...' : this.showList(this.props.doctors)}
+                {/* {this.props.doctors === null ? 'still loading...' : this.showList(this.props.doctors)} */}
+                {this.props.doctors === null ? 'still loading...' : <DoctorList doctors={this.props.doctors}/>}
             </div>
         )
     }

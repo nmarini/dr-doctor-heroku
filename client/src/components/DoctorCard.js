@@ -24,24 +24,24 @@ const DoctorCard = ({doctor}) => {
             <li key={index}>
                 {practice.name}
             <br/>
-                {practice.accepts_new_patients ? "Accepting New Patients" : "NOT Accepting New Patients"}
+                <div className="accepting-patients">{practice.accepts_new_patients ? "Accepting New Patients" : "NOT Accepting New Patients"}</div>
             <br/>
                 City/State: {practice.visit_address.city.toUpperCase()}/{practice.visit_address.state.toUpperCase()}
             </li>
         )
     )
 
-    const getInsurances = () => (
-            doctor.insurances.map((insurance, index) => (
-                <tr>
-                    <td>{insurance.insurance_plan}</td>
-                    <td>{insurance.insurance_provider}</td>
-                </tr>
-            )
-        )
-    )
+    // const getInsurances = () => (
+    //         doctor.insurances.map((insurance, index) => (
+    //             <tr>
+    //                 <td>{insurance.insurance_plan}</td>
+    //                 <td>{insurance.insurance_provider}</td>
+    //             </tr>
+    //         )
+    //     )
+    // )
 
-    return (
+    const doctorDoctor = () => (
         <div>
             <h1>Dr. {doctor.profile.last_name}</h1>
             <img src={doctor.profile.image_url} />
@@ -56,26 +56,56 @@ const DoctorCard = ({doctor}) => {
                 <ul>{getPractices()}</ul>
                 </div>
                 <div className="column">
-                {/* <h5>Accepted Insurances:</h5>
-                <table>
-                    <thead>
-                <tr>
-                    <th>Insurance Plan</th>
-                    <th>Insurance Provider</th>
-                </tr>
-                </thead>
-                <tbody>
-                
-                 {getInsurances()} 
-                
-                </tbody>
-            </table> */}
                 </div>
             </div>
             
             <button onKeyUp={createDoctor} >Save Profile</button> 
             {console.log(doctor)}
         </div>
+    )
+
+    const userDoctor = () => (
+        <div>
+            <h1>Dr. {doctor.last_name}</h1>
+            <img src={doctor.image_url} />
+            <div className="DoctorCardProfile">
+                
+                
+            </div> 
+            
+            <button onKeyUp={createDoctor} >Save Profile</button> 
+            {console.log(doctor)}
+        </div>
+
+    )
+
+    return (
+        <div>
+            DoctorCard
+            {doctor.profile ? console.log(true) : console.log(false)}
+        {console.log(doctor)}
+        </div>
+        // typeof doctor.profile === undefined ? userDoctor() : doctorDoctor()
+        // <div>
+        //     <h1>Dr. {doctor.profile.last_name}</h1>
+        //     <img src={doctor.profile.image_url} />
+        //     <div className="DoctorCardProfile">
+                
+        //     </div> 
+        //     <div className="row">
+        //         <div className="column">
+        //         <h5>Specialties:</h5>
+        //         {getSpecialties()}
+        //         </div>
+        //         <div className="column">
+        //         <h5>Practices:</h5>
+        //         {getPractices()}
+        //         </div>
+        //     </div>
+            
+        //     <button onKeyUp={createDoctor} >Save Profile</button> 
+        //     {console.log(doctor)}
+        // </div>
     )
 }
 
