@@ -26,8 +26,8 @@ class DoctorList extends Component {
     })
 
     handleClick = event => {
-        let doctorUid = parseInt(event.target.value);
-        let doctor = this.props.doctors.find(doctor => doctorUid === doctor.uid || doctorUid === doctor.id)
+        let doctorUid = event.target.value;
+        let doctor = this.props.doctors.find(doctor => doctorUid === doctor.uid || parseInt(doctorUid) === doctor.id)
         this.setState({
             selectedDoctor: doctor
         })

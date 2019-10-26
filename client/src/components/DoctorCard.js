@@ -2,6 +2,8 @@ import React from 'react';
 
 const DoctorCard = ({doctor}) => {
 
+    const profile = doctor.profile || null
+
     const createDoctor = credentials => {
         return fetch("http://localhost:3000/api/v1/create_doctor", {
                 credentials: "include",
@@ -79,16 +81,12 @@ const DoctorCard = ({doctor}) => {
 
     )
 
-    const profile = doctor.profile || null
-
     return (
         <>
             DoctorCard
             {profile === null ? userDoctor() : doctorDoctor()}
       
         </>
-        // typeof doctor.profile === undefined ? userDoctor() : doctorDoctor()
-        
     )
 }
 

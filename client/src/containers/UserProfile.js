@@ -14,7 +14,7 @@ class UserProfile extends Component {
     render() {
         return (
             <div>
-                User Profile
+                <h3>{this.props.currentUser.name}'s Profile'</h3>
                 <UserCard />
                 {this.props.currentUser ? <DoctorList doctors={this.props.currentUser.doctors} /> :  'still loading...'}
                     {/* {this.props.currentUser ? console.log(this.props): console.log(null)} */}
