@@ -9,7 +9,7 @@ class HomePage extends Component {
     ShowSearch = () => (
         <div>
             <DoctorSearch />
-            <DoctorContainer />
+            <DoctorContainer userId={this.props.currentUser.id}/>
         </div>
     )
 

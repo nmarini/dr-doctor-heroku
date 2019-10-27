@@ -2,19 +2,6 @@ import React from 'react';
 
 const DoctorCard = ({doctor}) => {
 
-    const profile = doctor.profile || null
-
-    const createDoctor = credentials => {
-        return fetch("http://localhost:3000/api/v1/create_doctor", {
-                credentials: "include",
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(credentials) 
-        })
-    }
-
     const getSpecialties = () => (
         doctor.specialties.map((specialty, index) => (
             <li key={index}>{specialty.name}: {specialty.description}</li>
@@ -33,18 +20,9 @@ const DoctorCard = ({doctor}) => {
         )
     )
 
-    // const getInsurances = () => (
-    //         doctor.insurances.map((insurance, index) => (
-    //             <tr>
-    //                 <td>{insurance.insurance_plan}</td>
-    //                 <td>{insurance.insurance_provider}</td>
-    //             </tr>
-    //         )
-    //     )
-    // )
-
-    const doctorDoctor = () => (
+    return (
         <div>
+            DoctorCard
             <h1>Dr. {doctor.profile.last_name}</h1>
             <img src={doctor.profile.image_url} alt="profile_picture"/>
             <div className="DoctorCardProfile">
@@ -60,35 +38,9 @@ const DoctorCard = ({doctor}) => {
                 <h5>Practices:</h5>
                 {getPractices()}
                 </div>
+                Note: {doctor.user_note}
             </div>
-            
-            <button onKeyUp={createDoctor} >Save Profile</button> 
-            {console.log(doctor)}
         </div>
-    )
-
-    const userDoctor = () => (
-        <div>
-            <h1>Dr. {doctor.last_name}</h1>
-            <img src={doctor.image_url} />
-            <div className="DoctorCardProfile">
-                
-                
-            </div> 
-            
-            <button onKeyUp={createDoctor} >Save Profile</button> 
-            {console.log(doctor)}
-        </div>
-
-    )
-
-    return (
-        <>
-            DoctorCard
-            {profile === null ? userDoctor() : doctorDoctor()}
-            {console.log(doctor)}
-      
-        </>
     )
 }
 

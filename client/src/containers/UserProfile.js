@@ -7,25 +7,61 @@ import { getCurrentUser } from '../actions/currentUser'
 
 class UserProfile extends Component {
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            loaded: false
+        }
+    }
     componentDidMount() {
         this.props.getCurrentUser();
+        this.setState({loaded:true})
+
     }
+
+    userDoctors = () => (
+        this.props.currentUser.doctors.map(doctor => {
+            
+            let userDoc = this.props.doctors.find(doc => (
+                doc.uid === doctor.uid
+            ))
+            userDoc.id = doctor.id 
+            userDoc.user_note = doctor.user_note
+            return userDoc
+            
+        })
+
+    )
 
     render() {
         return (
             <div>
-                <h3>{this.props.currentUser.name}'s Profile'</h3>
+                
                 <UserCard />
-                {this.props.currentUser ? <DoctorList doctors={this.props.currentUser.doctors} /> :  'still loading...'}
-                    {/* {this.props.currentUser ? console.log(this.props): console.log(null)} */}
+                {this.props.currentUser ? 
+                    <div>
+                        <h3>{this.props.currentUser.name}'s Profile'</h3>
+                        {
+                            this.props.doctors ? 
+                                <DoctorList doctors={this.userDoctors()} />
+                                
+                            :
+                                null 
+                        }
+
+                        
+                    </div>
+                :  
+                'still loading...'}
             </div>
         )
     }
 }
 
-const mapStateToProps = ({currentUser}) => {
+const mapStateToProps = ({currentUser, doctors}) => {
     return {
-        currentUser
+        currentUser,
+        doctors
     }
 }
 
