@@ -26,6 +26,7 @@ const DoctorCard = ({doctor}) => {
             <h1>Dr. {doctor.profile.last_name}</h1>
             <img src={doctor.profile.image_url} alt="profile_picture"/>
             <div className="DoctorCardProfile">
+            <div>Note: {doctor.user_note}</div>
 
                 
             </div> 
@@ -38,7 +39,6 @@ const DoctorCard = ({doctor}) => {
                 <h5>Practices:</h5>
                 {getPractices()}
                 </div>
-                Note: {doctor.user_note}
             </div>
         </div>
     )

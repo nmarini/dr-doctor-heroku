@@ -7,7 +7,8 @@ class Doctor extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userNote: this.props.doctor.user_note || false
+            userNote: '',
+            updateUserNote: this.props.doctor.user_note
         }
     }
 
@@ -52,7 +53,7 @@ class Doctor extends Component {
 
     handleChange = (event) => {
         this.setState({
-            userNote: event.target.value
+            [event.target.name]: event.target.value
         })
     }
 
@@ -62,9 +63,9 @@ class Doctor extends Component {
                     Note:
                     <input 
                         type="text"
-                        name="user_note"
+                        name="updateUserNote"
                         placeholder="Add Note (optiona)"
-                        value={this.state.userNote ? this.state.userNote : ''}
+                        value={this.state.updateUserNote }
                         onChange={this.handleChange}
                     />
                 </label>
@@ -80,9 +81,9 @@ class Doctor extends Component {
                     Note:
                     <input 
                         type="text"
-                        name="user_note"
+                        name="userNote"
                         placeholder="Add Note (optiona)"
-                        value={this.state.userNote ? this.state.userNote : ''}
+                        value={this.state.userNote}
                         onChange={this.handleChange}
                     />
                 </label>
