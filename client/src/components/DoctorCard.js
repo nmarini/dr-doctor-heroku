@@ -45,9 +45,10 @@ const DoctorCard = ({doctor}) => {
 
     const doctorDoctor = () => (
         <div>
-            <h1>Dr. {doctor.profile.last_name}</h1>
-            <img src={doctor.profile.image_url} />
+            <h1>Dr. {profile.last_name}</h1>
+            <img src={profile.image_url} alt="profile_picture"/>
             <div className="DoctorCardProfile">
+
                 
             </div> 
             <div className="row">
@@ -85,6 +86,7 @@ const DoctorCard = ({doctor}) => {
         <>
             DoctorCard
             {profile === null ? userDoctor() : doctorDoctor()}
+            {console.log(doctor)}
       
         </>
     )
