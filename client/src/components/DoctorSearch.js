@@ -8,7 +8,8 @@ class DoctorSearch extends Component {
         super(props)
         this.state = {
             lastName: "",
-            searchType: ""
+            searchType: "",
+            doctors: []
         }
     }
 
@@ -34,8 +35,9 @@ class DoctorSearch extends Component {
         })
     )
 
-    aphabetize = () => (
-        this.allDoctors().sort((a, b) => {
+    aphabetizeDocs = () => (
+
+       this.allDoctors().sort((a, b) => {
             if (a.profile.last_name < b.profile.last_name) 
                 return -1
             if (a.profile.last_name > b.profile.last_name)
@@ -53,7 +55,7 @@ class DoctorSearch extends Component {
         }) 
 
         const uniqSpec = [...new Set(specialties)].sort()
-        return uniqSpec       
+        return uniqSpec.map((spec, index) => <option key={index} value={spec}>{spec}</option>)      
     }
 
 
@@ -63,17 +65,8 @@ class DoctorSearch extends Component {
     }
 
     handleOnChange = event => {
-        const searchName = event.target.value
         this.setState({
-            lastName: searchName
-        })
-
-    }
-
-    handleButton = event => {
-        const type = event.target.value;
-        this.setState({
-            searchType: type
+            [event.target.name]: event.target.value
         })
     }
 
@@ -87,29 +80,32 @@ class DoctorSearch extends Component {
                     name="lastName"
                     value={this.state.lastName}
                 />
-                <label> 
-                    Sort by Specialty:
-                    {this.props.doctors !== null ?
-                    this.sortBySpecialty()
-                    :
-                    'still loading...'}
-                </label>
                 <input 
                     type="submit"
                     value="search"
-                />
-                
+                />                
             </form>
+
+            <label> 
+                Sort by Specialty:
+                <select name="searchType" value={this.state.searchType} onChange={this.handleOnChange}>
+                {this.props.doctors !== null ?
+                this.sortBySpecialty()
+                :
+                'still loading...'}
+                </select>
+            </label>
             <div>
-                <button value="alphabetical" onClick={this.handleButton}>Sort by Name</button>
+                <button value="alphabetical" name="searchType" onClick={this.handleButton}>Sort by Name</button>
                 <br/>
 
 
             </div>
             {this.props.doctors !== null && this.props.currentUser !== null ?
-                <DoctorList allDoctors={this.allDoctors()} />
+                <DoctorList allDoctors={this.aphabetizeDocs()} />
                 :
                 'still loading...'}
+                
             </div>
         )
     }
