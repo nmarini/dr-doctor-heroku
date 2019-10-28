@@ -7,31 +7,23 @@ import { getCurrentUser } from '../actions/currentUser'
 
 class UserProfile extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            loaded: false
-        }
-    }
     componentDidMount() {
         this.props.getCurrentUser();
-        this.setState({loaded:true})
-
     }
 
-    userDoctors = () => (
-        this.props.currentUser.doctors.map(doctor => {
+    // userDoctors = () => (
+    //     this.props.currentUser.doctors.map(doctor => {
             
-            let userDoc = this.props.doctors.find(doc => (
-                doc.uid === doctor.uid
-            ))
-            userDoc.id = doctor.id 
-            userDoc.user_note = doctor.user_note
-            return userDoc
+    //         let userDoc = this.props.doctors.find(doc => (
+    //             doc.uid === doctor.uid
+    //         ))
+    //         userDoc.id = doctor.id 
+    //         userDoc.user_note = doctor.user_note
+    //         return userDoc
             
-        })
+    //     })
 
-    )
+    // )
 
     render() {
         return (
@@ -43,7 +35,7 @@ class UserProfile extends Component {
                         <h3>{this.props.currentUser.name}'s Profile'</h3>
                         {
                             this.props.doctors ? 
-                                <DoctorList doctors={this.userDoctors()} />
+                                <DoctorList userDoctors={true} />
                                 
                             :
                                 null 

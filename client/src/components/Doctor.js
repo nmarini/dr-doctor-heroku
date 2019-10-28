@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import DoctorCard from './DoctorCard'
+import DoctorCard from './DoctorCard';
+import { getCurrentUser } from '../actions/currentUser';
 
 class Doctor extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            userNote: '',
-            updateUserNote: this.props.doctor.user_note
+            userNote: this.props.doctor.user_note ? this.props.doctor.user_note : ''
         }
+    }
+
+    componentDidMount() {
+        this.props.getCurrentUser();
     }
 
     createDoctor = (event) => {
@@ -53,19 +57,19 @@ class Doctor extends Component {
 
     handleChange = (event) => {
         this.setState({
-            [event.target.name]: event.target.value
+            userNote: event.target.value
         })
     }
 
     updateForm = () => (
         <form onSubmit={this.updateDoctor} >
                 <label>
-                    Note:
+                    Update Note:
                     <input 
                         type="text"
-                        name="updateUserNote"
+                        name="user_note"
                         placeholder="Add Note (optiona)"
-                        value={this.state.updateUserNote }
+                        value={this.state.userNote }
                         onChange={this.handleChange}
                     />
                 </label>
@@ -78,10 +82,10 @@ class Doctor extends Component {
     createForm = () => (
         <form onSubmit={this.createDoctor} >
                 <label>
-                    Note:
+                    Create Note:
                     <input 
                         type="text"
-                        name="userNote"
+                        name="user_note"
                         placeholder="Add Note (optiona)"
                         value={this.state.userNote}
                         onChange={this.handleChange}
@@ -106,6 +110,7 @@ class Doctor extends Component {
             <div>
 
                 <DoctorCard doctor={this.props.doctor} />
+                <h5>Note: {this.props.doctor.user_note}</h5>
     
             
                 {this.ownsDoctor(this.props.doctor) ? 
@@ -125,4 +130,4 @@ const mapStateToProps = ({currentUser}) => {
     }
 }
 
-export default connect(mapStateToProps)(Doctor);  
+export default connect(mapStateToProps, {getCurrentUser})(Doctor);  
