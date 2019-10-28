@@ -11,19 +11,19 @@ class UserProfile extends Component {
         this.props.getCurrentUser();
     }
 
-    // userDoctors = () => (
-    //     this.props.currentUser.doctors.map(doctor => {
+    userDoctors = () => (
+        this.props.currentUser.doctors.map(doctor => {
             
-    //         let userDoc = this.props.doctors.find(doc => (
-    //             doc.uid === doctor.uid
-    //         ))
-    //         userDoc.id = doctor.id 
-    //         userDoc.user_note = doctor.user_note
-    //         return userDoc
+            let userDoc = this.props.doctors.find(doc => (
+                doc.uid === doctor.uid
+            ))
+            userDoc.id = doctor.id 
+            userDoc.user_note = doctor.user_note
+            return userDoc
             
-    //     })
+        })
 
-    // )
+    )
 
     render() {
         return (
@@ -35,7 +35,7 @@ class UserProfile extends Component {
                         <h3>{this.props.currentUser.name}'s Profile'</h3>
                         {
                             this.props.doctors ? 
-                                <DoctorList userDoctors={true} />
+                                <DoctorList userDoctors={this.userDoctors()} />
                                 
                             :
                                 null 
