@@ -8,7 +8,8 @@ class Doctor extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userNote: this.props.doctor.user_note ? this.props.doctor.user_note : ''
+            userNote: this.props.doctor.user_note ? this.props.doctor.user_note : '',
+            currentNote: this.props.doctor.user_note
         }
     }
 
@@ -18,22 +19,22 @@ class Doctor extends Component {
 
     createDoctor = (event) => {
         event.preventDefault();
-        let doctorInfo = {
-            last_name: this.props.doctor.profile.last_name,
-            uid: this.props.doctor.uid,
-            user_note: this.state.userNote,
-            user_id: this.props.currentUser.id
-        }
+            let doctorInfo = {
+                last_name: this.props.doctor.profile.last_name,
+                uid: this.props.doctor.uid,
+                user_note: this.state.userNote,
+                user_id: this.props.currentUser.id
+            }
 
-        this.setState({userNote: ''})
-        return fetch("http://localhost:3000/api/v1/doctors", {
-                credentials: "include",
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(doctorInfo) 
-        })
+            this.setState({userNote: '', currentNote: this.state.userNote})
+            return fetch("http://localhost:3000/api/v1/doctors", {
+                    credentials: "include",
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify(doctorInfo) 
+            })
     }
 
     updateDoctor = (event) => {
@@ -43,7 +44,7 @@ class Doctor extends Component {
             uid: this.props.doctor.uid,
             user_note: this.state.userNote
         }
-        this.setState({userNote: ''})
+        this.setState({userNote: '', currentNote: this.state.userNote})
         return fetch(`http://localhost:3000/api/v1/doctors/${this.props.doctor.id}`, {
                 credentials: "include",
                 method: "PATCH",
@@ -110,7 +111,7 @@ class Doctor extends Component {
             <div>
 
                 <DoctorCard doctor={this.props.doctor} />
-                <h5>Note: {this.props.doctor.user_note}</h5>
+                <h5>Note: {this.state.currentNote}</h5>
     
             
                 {this.ownsDoctor(this.props.doctor) ? 

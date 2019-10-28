@@ -1,6 +1,6 @@
 import React from 'react';
 
-const DoctorCard = ({doctor}) => {
+const DoctorCard = ({doctor, note}) => {
 
     const getSpecialties = () => (
         doctor.specialties.map((specialty, index) => (
@@ -26,7 +26,7 @@ const DoctorCard = ({doctor}) => {
             <h1>Dr. {doctor.profile.last_name}</h1>
             <img src={doctor.profile.image_url} alt="profile_picture"/>
             <div className="DoctorCardProfile">
-            {/* <div>Note: {doctor.user_note}</div> */}
+            {/* <div>DoctorCard Note: {note}</div> */}
 
                 
             </div> 
