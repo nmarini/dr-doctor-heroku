@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DoctorContainer from './DoctorContainer';
+import DoctorSearch from '../components/DoctorSearch';
 
 class CompleteDoctorList extends Component {
 
@@ -8,7 +8,7 @@ class CompleteDoctorList extends Component {
             <div>   
                 Complete Doctor List
 
-                <DoctorContainer />
+                <DoctorSearch />
 
             </div>
         )

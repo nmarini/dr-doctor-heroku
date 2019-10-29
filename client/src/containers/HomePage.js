@@ -9,7 +9,7 @@ class HomePage extends Component {
         return (
             <div>
                 
-                {this.props.currentUser ? <DoctorSearch /> : <div>-or- <Signup /></div>}
+                {this.props.currentUser ? <p>Please use the navigation bar to checkout Doctors, your Profile, or to Log Out</p> : <p>Please Sign Up or Log In</p>}
 
             </div>
         )
