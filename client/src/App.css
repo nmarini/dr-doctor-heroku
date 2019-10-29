@@ -70,3 +70,7 @@
     color: red;
     font-style: italic;
 }
+
+.success {
+    color: green;
+}
