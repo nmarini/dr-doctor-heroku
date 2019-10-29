@@ -9,7 +9,9 @@ class Doctor extends Component {
         super(props)
         this.state = {
             userNote: this.props.doctor.user_note ? this.props.doctor.user_note : '',
-            currentNote: this.props.doctor.user_note
+            currentNote: this.props.doctor.user_note,
+            justSaved: false
+
         }
     }
 
@@ -26,7 +28,7 @@ class Doctor extends Component {
                 user_id: this.props.currentUser.id
             }
 
-            this.setState({userNote: '', currentNote: this.state.userNote})
+            this.setState({userNote: '', currentNote: this.state.userNote, justSaved: true})
             return fetch("http://localhost:3000/api/v1/doctors", {
                     credentials: "include",
                     method: "POST",
@@ -42,7 +44,7 @@ class Doctor extends Component {
         let doctorInfo = {
             last_name: this.props.doctor.profile.last_name,
             uid: this.props.doctor.uid,
-            user_note: this.state.userNote
+            user_note: this.state.currentNote
         }
         this.setState({userNote: '', currentNote: this.state.userNote})
         return fetch(`http://localhost:3000/api/v1/doctors/${this.props.doctor.id}`, {
@@ -111,7 +113,14 @@ class Doctor extends Component {
             <div>
 
                 <DoctorCard doctor={this.props.doctor} />
+                {this.state.currentNote ?
                 <h5>Note: {this.state.currentNote}</h5>
+                :
+                null}
+                {this.state.justSaved ?
+                <p className="success">Saved to profile!</p>
+                :
+                    null}
     
             
                 {this.ownsDoctor(this.props.doctor) ? 

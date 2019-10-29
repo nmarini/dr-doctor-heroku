@@ -36,6 +36,7 @@ class DoctorSearch extends Component {
             if (this.ownsDoctor(doctor)) {
                 let doc = this.props.currentUser.doctors.find(dr => dr.uid === doctor.uid)
                 doctor.user_note = doc.user_note
+                doctor.id = doc.id
                 return doctor
             } else {
                 return doctor
@@ -70,7 +71,8 @@ class DoctorSearch extends Component {
         event.preventDefault();
 
         this.setState({
-            chosenDocs: this.specialtyDoctors()
+            chosenDocs: this.specialtyDoctors(),
+            lastName: ''
         })
 
     }
@@ -80,7 +82,8 @@ class DoctorSearch extends Component {
 
         this.setState({
             chosenDocs: this.namedDoctors(),
-            lastName: ''
+            lastName: '',
+            searchType: ''
         })
         console.log(this.state)
         console.log(this.state.chosenDocs)
@@ -92,30 +95,24 @@ class DoctorSearch extends Component {
         })
     }
 
-    // handleThis = () => {
-    //     // this.setState({
-    //     //     chosenDocs: this.namedDoctors()
-    //     // })
-    //     console.log(this.state)
-    //     console.log(this.namedDoctors())
-    // }
-
     render() {
         return (
             <div>
             <form onSubmit={this.handleNameSubmit}>
+            <label>
+                Search by Last Name:
                 <input 
                     type="text"  
                     onChange={this.handleOnChange}
                     name="lastName"
                     value={this.state.lastName}
                 />
+            </label>
                 <input 
                     type="submit"
                     value="search"
                 />                
             </form>
-            {/* <button onClick={this.handleThis} value="click"/> */}
             
             <form onSubmit={this.handleSortSubmit}>
             <label> 
