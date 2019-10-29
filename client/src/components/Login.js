@@ -25,14 +25,14 @@ const Login = ({updateLoginForm, login, loginForm}) => {
         <form onSubmit={handleSubmit}>
             <input 
                 type="text"
-                placeholder="email"
+                placeholder="Email"
                 onChange={handleChange}
                 name="email"
                 value={loginForm.email}
             />
             <input 
                 type="text"
-                placeholder="password"
+                placeholder="Password"
                 onChange={handleChange}
                 name="password"
                 value={loginForm.password}
@@ -47,9 +47,9 @@ const Login = ({updateLoginForm, login, loginForm}) => {
     )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({loginForm}) => {
     return {
-        loginForm: state.loginForm
+        loginForm
     }
 }
 

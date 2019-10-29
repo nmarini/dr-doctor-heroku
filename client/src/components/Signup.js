@@ -1,48 +1,68 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { signup } from  '../actions/currentUser.js';
 
-const Signup = () => {
+class Signup extends Component {
 
-    const handleChange = (event) => {
+    constructor(props) {
+        super(props)
+        this.state = {
+            email: '',
+            name: '',
+            password: ''
+        }
+    } 
 
+    handleOnChange = event => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
     }
 
-    const handleSubmit = () => {
-
+    handleOnSubmit = event => {
+        event.preventDefault();
+        this.props.signup(this.state)
     }
 
-    return (
-        <div>
-            Sign Up
-            <form onSubmit={handleSubmit}>
-            <input 
-                type="text"
-                placeholder="Name"
-                onChange={handleChange}
-                name="name"
-                // value={}
-            />
-            <input 
-                type="text"
-                placeholder="Email"
-                onChange={handleChange}
-                name="email"
-                // value={}
-            />
-            <input 
-                type="password"
-                placeholder="Password"
-                onChange={handleChange}
-                name="password"
-                // value={}
-            />
-            <input 
-                type="submit"
-                value="Sign Up"
-            />
-        </form>
+    render() {
+        return (
+            <div>
+                Sign Up
+                <form onSubmit={this.handleOnSubmit}>
+                    <input 
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        value={this.state.name}
+                        onChange={this.handleOnChange}
+                    />
+                   
+                    <input 
+                        type="text"
+                        name="email"
+                        placeholder="Email"
+                        value={this.state.email}
+                        onChange={this.handleOnChange}
+                    />
+                  
+                    <input 
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={this.state.password}
+                        onChange={this.handleOnChange}
+                    />
+                   
+                    <input 
+                        type="submit"
+                        value="Sign Up"            
+                    />
 
-        </div>
-    )
+                </form>
+    
+            </div>
+        )
+    }
 }
 
-export default Signup; 
+export default connect(null, { signup })(Signup); 
