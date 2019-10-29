@@ -14,7 +14,7 @@ const NavBar = ({currentUser}) => {
             <div className="NavColumn"><NavLink to='/'><button className="button">Home Page</button></NavLink></div>
             <div className="NavColumn"><NavLink to='/userProfile'><button className="button" >User's Profile</button></NavLink></div>
             <div className="NavColumn"><NavLink to='/doctorList'><button className="button" >Doctor List</button></NavLink></div>
-            <div className="NavLogout"><Logout/></div>
+            <div className="NavColumn"><Logout/></div>
         </div>
     )
 

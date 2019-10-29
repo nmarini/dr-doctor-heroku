@@ -21,7 +21,6 @@
 
 .NavColumn {
     float: left;
-    width: 50%;
 }
 
 .NavRow {
@@ -29,23 +28,19 @@
     width: auto;
     border: 3px solid #015875;
     padding: 10px;
-    /* float: center; */
+    float: center;
     text-align: center;
-    /* content: ""; */
-    /* display: table; */
-    /* clear: both; */
+    content: ""; 
+    display: table;
+    clear: both; 
 }
 
 .NavBar {
     color: #008CBA;
 }
 
-.NavLogout {
-    clear: both;
-}
-
 .button {
-    background-color: #7ac3ff;
+    background-color: rgb(176, 224, 240);
     font-size: 15px;
     border-radius: 12px;
     border: 2px solid #015875;

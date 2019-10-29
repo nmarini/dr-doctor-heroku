@@ -25,13 +25,24 @@ class App extends Component {
             <p className="italic-p">Helping you find the doctor you need</p>
           </div>
             <NavBar />
-            <Route exact path='/' component={HomePage} />
-            <Route exact path='/userProfile' component={UserProfile} />
-            <Route exact path='/doctorList' component={CompleteDoctorList} />
+            {this.props.currentUser ? 
+            <div>
+              <Route exact path='/' component={HomePage} />
+              <Route exact path='/userProfile' component={UserProfile} />
+              <Route exact path='/doctorList' component={CompleteDoctorList} />
+            </div>
+            :
+            <Route exact path='/' component={HomePage} />}
         </div>
       </Router>
     );
   }
 }
 
-export default connect(null, { getCurrentUser, getDoctors })(App);
+const mapStateToProps = ({currentUser}) => {
+  return {
+    currentUser
+  }
+}
+
+export default connect(mapStateToProps, { getCurrentUser, getDoctors })(App);
