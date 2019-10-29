@@ -31,7 +31,7 @@ const Login = ({updateLoginForm, login, loginForm}) => {
                 value={loginForm.email}
             />
             <input 
-                type="text"
+                type="password"
                 placeholder="Password"
                 onChange={handleChange}
                 name="password"
