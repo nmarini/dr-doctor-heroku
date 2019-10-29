@@ -9,13 +9,21 @@ class DoctorSearch extends Component {
         this.state = {
             lastName: "",
             searchType: "",
-            doctors: []
+            chosenDocs: false
         }
     }
 
-    componentDidMount() { 
-        
-    }
+    specialtyDoctors = () => (
+        this.alphabetizeDocs().filter(doc => {
+            let specialties = doc.specialties.map(spec => spec.name)
+            if (specialties.includes(this.state.searchType)) 
+            return doc
+        })
+    )
+
+    namedDoctors = () => (
+        this.alphabetizeDocs().filter(doc => doc.profile.last_name.toLowerCase() === this.state.lastName.toLowerCase())
+    )
 
     ownsDoctor = (doctor) => {
          
@@ -35,7 +43,7 @@ class DoctorSearch extends Component {
         })
     )
 
-    aphabetizeDocs = () => (
+    alphabetizeDocs = () => (
 
        this.allDoctors().sort((a, b) => {
             if (a.profile.last_name < b.profile.last_name) 
@@ -58,10 +66,24 @@ class DoctorSearch extends Component {
         return uniqSpec.map((spec, index) => <option key={index} value={spec}>{spec}</option>)      
     }
 
-
-    handleOnSubmit = (event) => {
+    handleSortSubmit = (event) => {
         event.preventDefault();
 
+        this.setState({
+            chosenDocs: this.specialtyDoctors()
+        })
+
+    }
+
+    handleNameSubmit = (event) => {
+        event.preventDefault();
+
+        this.setState({
+            chosenDocs: this.namedDoctors(),
+            lastName: ''
+        })
+        console.log(this.state)
+        console.log(this.state.chosenDocs)
     }
 
     handleOnChange = event => {
@@ -70,10 +92,18 @@ class DoctorSearch extends Component {
         })
     }
 
+    // handleThis = () => {
+    //     // this.setState({
+    //     //     chosenDocs: this.namedDoctors()
+    //     // })
+    //     console.log(this.state)
+    //     console.log(this.namedDoctors())
+    // }
+
     render() {
         return (
             <div>
-            <form onSubmit={this.handleOnSubmit}>
+            <form onSubmit={this.handleNameSubmit}>
                 <input 
                     type="text"  
                     onChange={this.handleOnChange}
@@ -85,27 +115,35 @@ class DoctorSearch extends Component {
                     value="search"
                 />                
             </form>
-
+            {/* <button onClick={this.handleThis} value="click"/> */}
+            
+            <form onSubmit={this.handleSortSubmit}>
             <label> 
-                Sort by Specialty:
-                <select name="searchType" value={this.state.searchType} onChange={this.handleOnChange}>
-                {this.props.doctors !== null ?
-                this.sortBySpecialty()
-                :
-                'still loading...'}
-                </select>
-            </label>
-            <div>
-                <button value="alphabetical" name="searchType" onClick={this.handleButton}>Sort by Name</button>
-                <br/>
+                    Sort by Specialty:
+                    <select name="searchType" value={this.state.searchType} onChange={this.handleOnChange}>
+                    {this.props.doctors !== null ?
+                    this.sortBySpecialty()
+                    :
+                    'still loading...'}
+                    </select>
+                </label>
+                <input 
+                    type="submit"
+                    value="sort!"
 
+                />
+            </form>
+            <div>
 
             </div>
             {this.props.doctors !== null && this.props.currentUser !== null ?
-                <DoctorList allDoctors={this.aphabetizeDocs()} />
+                this.state.chosenDocs ? 
+                    <DoctorList key={this.state.chosenDocs} allDoctors={this.state.chosenDocs} />
                 :
+                    <DoctorList key={this.state.chosenDocs} allDoctors={this.alphabetizeDocs()} />
+            :
                 'still loading...'}
-                
+              
             </div>
         )
     }
