@@ -12,7 +12,10 @@ class Api::V1::UsersController < ApplicationController
             session[:user_id] = @user.id 
             render json: @user, include: [:doctors]
         else 
-            render json: @user.errors, status: :unprocessable_entity 
+            resp = {
+                error: @user.errors.full_messages.to_sentence
+            }
+            render json: resp, status: :unprocessable_entity 
         end 
     end  
 
@@ -35,7 +38,7 @@ class Api::V1::UsersController < ApplicationController
         end 
 
         def user_params 
-            params.require(:user).permit(:name, :email, :password_digest) 
+            params.require(:user).permit(:name, :email, :password)  
         end 
 
     
