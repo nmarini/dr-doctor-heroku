@@ -26,7 +26,6 @@ const DoctorCard = ({doctor, note}) => {
             <h1>Dr. {doctor.profile.last_name}</h1>
             <img src={doctor.profile.image_url} alt="profile_picture"/>
             <div className="DoctorCardProfile">
-            {/* <div>DoctorCard Note: {note}</div> */}
 
                 
             </div> 

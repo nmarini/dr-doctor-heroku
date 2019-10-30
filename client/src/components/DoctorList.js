@@ -50,9 +50,24 @@ class DoctorList extends Component {
 
 
 
-    listDoctors = (doctors) => 
+    listDoctors = (doctors) => (
         doctors.map(doctor => 
-        <li key={doctor.uid}>Dr. {doctor.profile.last_name} <button value={doctor.uid} onClick={this.handleClick}>give me the news!</button></li>)
+            <li key={doctor.uid}>Dr. {doctor.profile.last_name} <button value={doctor.uid} onClick={this.handleClick}>give me the news!</button></li>
+        )
+    )
+
+    listUserDoctors = (doctors) => (
+        doctors.map(doctor => 
+            <li key={doctor.uid}>Dr. {doctor.profile.last_name} <button value={doctor.uid} onClick={this.handleClick}>give me the news!</button><button value={doctor.id} onClick={this.handleDelete}>remove</button></li>
+        )
+    )
+
+    handleDelete = (event) => {
+        fetch(`http://localhost:3000/api/v1/doctors/${event.target.value}`, {
+            credentials: "include",
+            method: "DELETE"
+        })
+    }
 
     handleClick = event => {
         let doctorUid = event.target.value;
@@ -72,7 +87,7 @@ class DoctorList extends Component {
                 <div className="doctorContainerList">
                 {/* {this.props.doctors !== null && this.props.currentUser !== null ? */}
                     {this.props.userDoctors ? 
-                        this.listDoctors(this.props.userDoctors) 
+                        this.listUserDoctors(this.props.userDoctors) 
                     : 
                         this.listDoctors(this.props.allDoctors)}
                     {/* :
