@@ -8,7 +8,8 @@ class DoctorList extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            selectedDoctor: false
+            selectedDoctor: false,
+            userDocs: this.props.userDoctors
         }
     }
 
@@ -63,10 +64,17 @@ class DoctorList extends Component {
     )
 
     handleDelete = (event) => {
-        fetch(`http://localhost:3000/api/v1/doctors/${event.target.value}`, {
+        const id = parseInt(event.target.value)
+        const updatedDocs = this.state.userDocs.filter(doc => (
+                doc.id !== id
+            ))
+        this.setState({
+            userDocs: updatedDocs
+        })
+        fetch(`http://localhost:3000/api/v1/doctors/${id}`, {
             credentials: "include",
             method: "DELETE"
-        })
+        })        
     }
 
     handleClick = event => {
@@ -87,7 +95,7 @@ class DoctorList extends Component {
                 <div className="doctorContainerList">
                 {/* {this.props.doctors !== null && this.props.currentUser !== null ? */}
                     {this.props.userDoctors ? 
-                        this.listUserDoctors(this.props.userDoctors) 
+                        this.listUserDoctors(this.state.userDocs)
                     : 
                         this.listDoctors(this.props.allDoctors)}
                     {/* :

@@ -32,7 +32,7 @@ class UserProfile extends Component {
                 <UserCard />
                 {this.props.currentUser ? 
                     <div>
-                        <h3>{this.props.currentUser.name}'s Profile'</h3>
+                        <h3>{this.props.currentUser.name}'s Profile</h3>
                         {
                             this.props.doctors ? 
                                 <DoctorList userDoctors={this.userDoctors()} />

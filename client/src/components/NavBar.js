@@ -9,14 +9,15 @@ import Signup from './Signup.js';
 
 const NavBar = ({currentUser}) => {
 
-    const loggedIn = () => (
-        <div className="NavRow">
+    const loggedIn = () => {
+        // const userUrl = '/' + currentUser.name
+        return <div className="NavRow">
             <div className="NavColumn"><NavLink to='/'><button className="button">Home Page</button></NavLink></div>
             <div className="NavColumn"><NavLink to='/userProfile'><button className="button" >User's Profile</button></NavLink></div>
             <div className="NavColumn"><NavLink to='/doctorList'><button className="button" >Doctor List</button></NavLink></div>
             <div className="NavColumn"><Logout/></div>
         </div>
-    )
+    }
 
         return (
             <div className="NavBar">
