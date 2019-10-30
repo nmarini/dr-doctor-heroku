@@ -88,20 +88,23 @@ class DoctorList extends Component {
 
     render() {
         return (
-            <div>
-                <h4 className="doctorContainerCard">
-                    {this.state.selectedDoctor ? <Doctor key={this.state.selectedDoctor.uid} note={this.state.selectedDoctor.user_note} doctor={this.state.selectedDoctor}/> : 'Select a Doctor'}
-                </h4>
-                <div className="doctorContainerList">
-                {/* {this.props.doctors !== null && this.props.currentUser !== null ? */}
-                    {this.props.userDoctors ? 
-                        this.listUserDoctors(this.state.userDocs)
-                    : 
-                        this.listDoctors(this.props.allDoctors)}
-                    {/* :
-                        'still loading...'} */}
+            <div className="row">
+                <div className="column">
+                    <div className="doctorContainerList">
+                    {/* {this.props.doctors !== null && this.props.currentUser !== null ? */}
+                        {this.props.userDoctors ? 
+                            this.listUserDoctors(this.state.userDocs)
+                        : 
+                            this.listDoctors(this.props.allDoctors)}
+                        {/* :
+                            'still loading...'} */}
+                    </div>
                 </div>
-              
+                <div className="column">
+                    <div className="doctorContainerCard">
+                        {this.state.selectedDoctor ? <Doctor key={this.state.selectedDoctor.uid} note={this.state.selectedDoctor.user_note} doctor={this.state.selectedDoctor}/> : 'Select a Doctor'}
+                    </div>
+                </div>              
             </div>
         )
     }
