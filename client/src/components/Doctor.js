@@ -114,7 +114,7 @@ class Doctor extends Component {
 
                 <DoctorCard doctor={this.props.doctor} />
                 {this.state.currentNote ?
-                <h5>Note: {this.state.currentNote}</h5>
+                <h5>Updated Note: {this.state.currentNote}</h5>
                 :
                 null}
                 {this.state.justSaved ?
