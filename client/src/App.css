@@ -54,12 +54,12 @@
 .row:after {
     content: "";
     display: table;
-    clear: both
+    clear: both;
 }
 
 .column {
     float: left;
-    width: 50%;
+    width: 49%;
 }
 
 .accepting-patients {
