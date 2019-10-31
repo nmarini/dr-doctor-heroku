@@ -28,6 +28,7 @@ class Api::V1::UsersController < ApplicationController
     end 
 
     def destroy 
+        session.clear
         @user.destroy 
     end 
     
