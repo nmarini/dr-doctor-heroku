@@ -23,17 +23,23 @@ class UserProfile extends Component {
     handleOnSubmit = (event) => {
         event.preventDefault();
         const userInfo = {
-            user: this.state
+            user: {
+                name: this.state.name,
+                email: this.state.email,
+                password: this.state.password
+
+            }
         }
-        console.log(userInfo)
-        // return fetch(`http://localhost:3000/api/v1/users/${this.props.currentUser.id}`, {
-        //         credentials: "include",
-        //         method: "PATCH",
-        //         headers: {
-        //             "Content-Type": "application/json"
-        //         },
-        //         body: JSON.stringify(userInfo) 
-        // })
+
+        fetch(`http://localhost:3000/api/v1/users/${this.props.currentUser.id}`, {
+            credentials: "include",
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(userInfo) 
+        })
+        this.setState({exposeForm: !this.state.exposeForm})
     }
 
     handleDelete = () => {
@@ -109,24 +115,27 @@ class UserProfile extends Component {
         return (
             <div>
                 <div>
-                <UserCard />
-                <button onClick={this.showForm}>{this.state.exposeForm ? "Hide Edit Form" : "Show Edit Form"}</button>
+                <UserCard key={this.state.exposeForm}/>
+                <div>
+                    <button onClick={this.showForm}>{this.state.exposeForm ? "Hide Edit Form" : "Show Edit Form"}</button>
+                </div>
                 {this.state.exposeForm ? 
                     this.updateForm()
                 :
                     null }
-
-                <form onSubmit={this.handleDelete} >
-                    <input 
-                        type="submit"
-                        value="Delete Your Account"
-                    />
-                </form>
+                <div>
+                    <form onSubmit={this.handleDelete} >
+                        <input 
+                            type="submit"
+                            value="Delete Your Account"
+                        />
+                    </form>
+                </div>
                 </div>
             
                 
                 {this.props.doctors ? 
-                    this.currentUser.doctors > 0 ?
+                    this.props.currentUser.doctors > 0 ?
                     <div>
                         <h3>Your saved Doctors:</h3>
                             <DoctorList userDoctors={this.userDoctors()} />  
