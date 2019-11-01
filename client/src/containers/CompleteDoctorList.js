@@ -6,7 +6,7 @@ class CompleteDoctorList extends Component {
     render() {
         return (
             <div>   
-                Complete Doctor List
+                <h5>Doctor List</h5>
 
                 <DoctorSearch />
 
