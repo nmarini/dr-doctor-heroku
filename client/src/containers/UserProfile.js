@@ -39,7 +39,7 @@ class UserProfile extends Component {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(userInfo) 
-        })
+        }).then(this.props.getCurrentUser)
         this.setState({exposeForm: !this.state.exposeForm})
     }
 
