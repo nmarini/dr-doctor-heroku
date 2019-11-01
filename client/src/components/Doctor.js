@@ -28,7 +28,7 @@ class Doctor extends Component {
                 user_id: this.props.currentUser.id
             }
 
-            this.setState({userNote: '', currentNote: this.state.userNote, justSaved: true})
+            this.setState({userNote: this.state.currentNote, currentNote: '', justSaved: true})
             return fetch("http://localhost:3000/api/v1/doctors", {
                     credentials: "include",
                     method: "POST",
@@ -46,7 +46,7 @@ class Doctor extends Component {
             uid: this.props.doctor.uid,
             user_note: this.state.currentNote
         }
-        this.setState({userNote: '', currentNote: this.state.userNote})
+        this.setState({userNote: this.state.currentNote, currentNote: ''})
         return fetch(`http://localhost:3000/api/v1/doctors/${this.props.doctor.id}`, {
                 credentials: "include",
                 method: "PATCH",
@@ -60,7 +60,7 @@ class Doctor extends Component {
 
     handleChange = (event) => {
         this.setState({
-            userNote: event.target.value
+            currentNote: event.target.value
         })
     }
 
@@ -72,7 +72,7 @@ class Doctor extends Component {
                         type="text"
                         name="user_note"
                         placeholder="Add Note (optiona)"
-                        value={this.state.userNote }
+                        value={this.state.currentNote }
                         onChange={this.handleChange}
                     />
                 </label>
@@ -90,7 +90,7 @@ class Doctor extends Component {
                         type="text"
                         name="user_note"
                         placeholder="Add Note (optiona)"
-                        value={this.state.userNote}
+                        value={this.state.currentNote}
                         onChange={this.handleChange}
                     />
                 </label>
@@ -113,8 +113,8 @@ class Doctor extends Component {
             <div>
 
                 <DoctorCard key={this.props.doctor.uid} doctor={this.props.doctor} />
-                {this.state.currentNote ?
-                <h5>Updated Note: {this.state.currentNote}</h5>
+                {this.state.userNote ?
+                <h5>Note: {this.state.userNote}</h5>
                 :
                 null}
                 {this.state.justSaved ?
@@ -127,9 +127,7 @@ class Doctor extends Component {
                     this.updateForm() 
                 : 
                     this.createForm()}
-                
-                {console.log(this.props.doctor)}
-        </div>
+            </div>
         )
     }
 }
