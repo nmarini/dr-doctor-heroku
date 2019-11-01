@@ -23,8 +23,7 @@ const DoctorCard = ({doctor, note}) => {
 
     return (
         <div>
-            DoctorCard
-            <h1>Dr. {doctor.profile.last_name}</h1>
+            <h1 className="component-title">Dr. {doctor.profile.last_name}</h1>
             <img src={doctor.profile.image_url} alt="profile_picture"/>
             <div className="DoctorCardProfile">
                 

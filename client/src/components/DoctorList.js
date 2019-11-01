@@ -19,13 +19,13 @@ class DoctorList extends Component {
 
     listDoctors = (doctors) => (
         doctors.map(doctor => 
-            <li key={doctor.uid}>Dr. {doctor.profile.last_name} <button value={doctor.uid} onClick={this.handleClick}>give me the news!</button></li>
+            <div className="underlined" key={doctor.uid}><h6>Dr. {doctor.profile.last_name}</h6><p><button className="button" value={doctor.uid} onClick={this.handleClick}>give me the news!</button></p></div>
         )
     )
 
     listUserDoctors = (doctors) => (
         doctors.map(doctor => 
-            <li key={doctor.uid}>Dr. {doctor.profile.last_name} <button value={doctor.uid} onClick={this.handleClick}>give me the news!</button><button value={doctor.id} onClick={this.handleDelete}>remove</button></li>
+            <div className="underlined" key={doctor.uid}><h6>Dr. {doctor.profile.last_name}</h6><p><button className="button" value={doctor.uid} onClick={this.handleClick}>give me the news!</button><button className="warning-button" value={doctor.id} onClick={this.handleDelete}>remove</button></p></div>
         )
     )
 
@@ -65,7 +65,7 @@ class DoctorList extends Component {
                 </div>
                 <div className="column">
                     <div className="doctorContainerCard">
-                        {this.state.selectedDoctor ? <Doctor key={this.state.selectedDoctor.uid} note={this.state.selectedDoctor.user_note} doctor={this.state.selectedDoctor}/> : 'Select a Doctor'}
+                        {this.state.selectedDoctor ? <Doctor key={this.state.selectedDoctor.uid} note={this.state.selectedDoctor.user_note} doctor={this.state.selectedDoctor}/> : <p className="underlined">Selected Doctor will Display here</p>}
                     </div>
                 </div>              
             </div>

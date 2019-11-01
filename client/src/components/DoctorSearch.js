@@ -107,6 +107,7 @@ class DoctorSearch extends Component {
                 Search by Last Name:
                 <input 
                     type="text"  
+                    className="round-textbox"
                     onChange={this.handleOnChange}
                     name="lastName"
                     value={this.state.lastName}
@@ -122,7 +123,7 @@ class DoctorSearch extends Component {
             <form onSubmit={this.handleSortSubmit}>
             <label> 
                     Sort by Specialty:
-                    <select name="searchType" value={this.state.searchType} onChange={this.handleOnChange}>
+                    <select name="searchType" className="button" value={this.state.searchType} onChange={this.handleOnChange}>
                     {this.props.doctors !== null ?
                     this.sortBySpecialty()
                     :

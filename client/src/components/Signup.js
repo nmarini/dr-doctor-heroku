@@ -31,6 +31,7 @@ class Signup extends Component {
                 <form onSubmit={this.handleOnSubmit}>
                     <input 
                         type="text"
+                        className="round-textbox"
                         name="name"
                         placeholder="Name"
                         value={this.state.name}
@@ -39,6 +40,7 @@ class Signup extends Component {
                    
                     <input 
                         type="text"
+                        className="round-textbox"
                         name="email"
                         placeholder="Email"
                         value={this.state.email}
@@ -47,6 +49,7 @@ class Signup extends Component {
                   
                     <input 
                         type="password"
+                        className="round-textbox"
                         name="password"
                         placeholder="Password"
                         value={this.state.password}

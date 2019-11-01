@@ -26,6 +26,7 @@ const Login = ({clearLoginForm, updateLoginForm, login, loginForm}) => {
         <form onSubmit={handleSubmit}>
             <input 
                 type="text"
+                className="round-textbox"
                 placeholder="Email"
                 onChange={handleChange}
                 name="email"
@@ -33,6 +34,7 @@ const Login = ({clearLoginForm, updateLoginForm, login, loginForm}) => {
             />
             <input 
                 type="password"
+                className="round-textbox"
                 placeholder="Password"
                 onChange={handleChange}
                 name="password"

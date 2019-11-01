@@ -8,7 +8,7 @@ const Logout = ({ logout }) => {
 
     return (
 
-        <NavLink to='/'><button className="button" onClick={logout}>Log Out</button></NavLink>
+        <NavLink to='/'><button className="nav-button" onClick={logout}>Log Out</button></NavLink>
     )
 }
 

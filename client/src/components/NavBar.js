@@ -11,9 +11,9 @@ const NavBar = ({currentUser}) => {
 
     const loggedIn = () => {
         return <div className="NavRow">
-            <div className="NavColumn"><NavLink to='/'><button className="button">Home Page</button></NavLink></div>
-            <div className="NavColumn"><NavLink to='/userProfile'><button className="button" >User's Profile</button></NavLink></div>
-            <div className="NavColumn"><NavLink to='/doctorList'><button className="button" >Doctor List</button></NavLink></div>
+            <div className="NavColumn"><NavLink to='/'><button className="nav-button">Home Page</button></NavLink></div>
+            <div className="NavColumn"><NavLink to='/userProfile'><button className="nav-button" >User's Profile</button></NavLink></div>
+            <div className="NavColumn"><NavLink to='/doctorList'><button className="nav-button" >Doctor List</button></NavLink></div>
             <div className="NavColumn"><Logout/></div>
         </div>
     }
@@ -21,7 +21,7 @@ const NavBar = ({currentUser}) => {
         return (
             <div className="NavBar">
                 <div>
-                    { currentUser ? <strong>Welcome, {currentUser.name} </strong> : null}
+                    { currentUser ? <strong>Welcome, {currentUser.name}! </strong> : null}
                     <div>{ currentUser ? null : <div><Login/>-or-<Signup/></div>}</div>
                 </div>
                 {currentUser ? loggedIn() : ""}

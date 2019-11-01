@@ -14,9 +14,23 @@
     float: center;
 }
 
+.component-title {
+    color: #008CBA;
+    font-weight: bold;
+}
+
+.text-color {
+    color: #008CBA;
+}
+
 .italic-p {
     font-style: italic;
     font-family: "Courier New", Monospace;
+}
+
+.underlined {
+    text-decoration: underline;
+    color: #008CBA;
 }
 
 .NavColumn {
@@ -40,11 +54,43 @@
     color: #008CBA;
 }
 
+.nav-button {
+    background-color: #d5f4e6;
+    font-size: 15px;
+    border-radius: 12px;
+    border: 2px solid #015875;
+}
+
+.warning-button {
+    background-color: rgb(176, 224, 240);
+    font-size: 15px;
+    border-radius: 12px;
+    border: 2px solid rgba(186, 0, 0, 0.678);
+}
+
+.edit-button {
+    background-color: rgb(176, 224, 240);
+    font-size: 15px;
+    border-radius: 12px;
+    border: 2px solid rgba(96, 0, 186, 0.678);
+}
+
+.save-button {
+    background-color: rgb(176, 224, 240);
+    font-size: 15px;
+    border-radius: 12px;
+    border: 2px solid green;
+}
+
 .button {
     background-color: rgb(176, 224, 240);
     font-size: 15px;
     border-radius: 12px;
-    border: 2px solid #015875;
+    border: 2px solid #008CBA;
+}
+
+.round-textbox {
+    border-radius: 12px;
 }
 
 .DoctorCardProfile {

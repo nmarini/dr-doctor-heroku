@@ -11,7 +11,6 @@ class Doctor extends Component {
             userNote: this.props.doctor.user_note ? this.props.doctor.user_note : '',
             currentNote: this.props.doctor.user_note,
             justSaved: false
-
         }
     }
 
@@ -70,6 +69,7 @@ class Doctor extends Component {
                     Update Note:
                     <input 
                         type="text"
+                        className="round-textbox"
                         name="user_note"
                         placeholder="Add Note (optiona)"
                         value={this.state.currentNote }
@@ -77,7 +77,7 @@ class Doctor extends Component {
                     />
                 </label>
             
-            <input type="submit" value="Update Profile" /> 
+            <input className="edit-button" type="submit" value="Update Profile" /> 
 
             </form> 
     )
@@ -88,6 +88,7 @@ class Doctor extends Component {
                     Create Note:
                     <input 
                         type="text"
+                        className="round-textbox"
                         name="user_note"
                         placeholder="Add Note (optiona)"
                         value={this.state.currentNote}
@@ -95,7 +96,7 @@ class Doctor extends Component {
                     />
                 </label>
             
-            <input type="submit" value="Save Profile" /> 
+            <input className="save-button" type="submit" value="Save Profile" /> 
 
             </form> 
     )

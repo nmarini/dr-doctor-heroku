@@ -68,6 +68,7 @@ class UserProfile extends Component {
         <form onSubmit={this.handleOnSubmit}>
             <input 
                 type="text"
+                className="round-textbox"
                 name="name"
                 placeholder="Name"
                 value={this.state.name}
@@ -76,6 +77,7 @@ class UserProfile extends Component {
             
             <input 
                 type="text"
+                className="round-textbox"
                 name="email"
                 placeholder="Email"
                 value={this.state.email}
@@ -84,6 +86,7 @@ class UserProfile extends Component {
             
             <input 
                 type="password"
+                className="round-textbox"
                 name="password"
                 placeholder="Password"
                 value={this.state.password}
@@ -92,6 +95,7 @@ class UserProfile extends Component {
             
             <input 
                 type="submit"
+                className="edit-button"
                 value="Update Account"            
             />
 
@@ -118,14 +122,14 @@ class UserProfile extends Component {
                 <div>
                 <UserCard key={this.state.exposeForm}/>
                 <div>
-                    <button onClick={this.showForm}>{this.state.exposeForm ? "Hide Edit Form" : "Show Edit Form"}</button>
+                    <button className="edit-button" onClick={this.showForm}>{this.state.exposeForm ? "Hide Edit Form" : "Show Edit Form"}</button>
                 </div>
                 {this.state.exposeForm ? 
                     this.updateForm()
                 :
                     null }
                 <div>
-                    <NavLink to="/"><button className="button" onClick={this.handleDelete}>Delete Your Account</button></NavLink>
+                    <NavLink to="/"><button className="warning-button" onClick={this.handleDelete}>Delete Your Account</button></NavLink>
                 </div>
                 </div>
             
@@ -133,7 +137,7 @@ class UserProfile extends Component {
                 {this.props.doctors ? 
         
                     <div>
-                        <h3>Your saved Doctors:</h3>
+                        <h6 className="component-title">Your saved Doctors:</h6>
                             <DoctorList userDoctors={this.userDoctors()} />  
                     </div>
                 :  
