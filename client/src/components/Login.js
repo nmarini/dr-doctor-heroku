@@ -40,6 +40,7 @@ const Login = ({clearLoginForm, updateLoginForm, login, loginForm}) => {
             />
             <input 
                 type="submit"
+                className="button"
                 value="Log In"
             />
         </form>
