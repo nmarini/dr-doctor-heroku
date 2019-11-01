@@ -71,7 +71,7 @@ class Doctor extends Component {
                         type="text"
                         className="round-textbox"
                         name="user_note"
-                        placeholder="Add Note (optiona)"
+                        placeholder="Add Note (optional)"
                         value={this.state.currentNote }
                         onChange={this.handleChange}
                     />
@@ -90,7 +90,7 @@ class Doctor extends Component {
                         type="text"
                         className="round-textbox"
                         name="user_note"
-                        placeholder="Add Note (optiona)"
+                        placeholder="Add Note (optional)"
                         value={this.state.currentNote}
                         onChange={this.handleChange}
                     />
