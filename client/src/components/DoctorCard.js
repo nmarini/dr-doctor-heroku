@@ -4,18 +4,18 @@ const DoctorCard = ({doctor, note}) => {
 
     const getSpecialties = () => (
         doctor.specialties.map((specialty, index) => (
-            <div><li key={index}>{specialty.name}: {specialty.description}</li><br/></div>
+            <div key={index}><li>{specialty.name}: {specialty.description}</li><br/></div>
         ))
     )
 
     const getPractices = () => (
         doctor.practices.map((practice, index) => 
-            <div>
-            <li key={index}>
-                {practice.name}
-                <div className="accepting-patients">{practice.accepts_new_patients ? "Accepting New Patients" : "NOT Accepting New Patients"}</div>
-                City/State: {practice.visit_address.city.toUpperCase()}/{practice.visit_address.state.toUpperCase()}
-            </li>
+            <div key={index}>
+                <li>
+                    {practice.name}
+                    <div className="accepting-patients">{practice.accepts_new_patients ? "Accepting New Patients" : "NOT Accepting New Patients"}</div>
+                    City/State: {practice.visit_address.city.toUpperCase()}/{practice.visit_address.state.toUpperCase()}
+                </li>
             <br/>
             </div>
         )

@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { logout } from '../actions/currentUser.js'
+import { logout } from '../actions/currentUser.js';
+import { NavLink } from 'react-router-dom';
 
 const Logout = ({ logout }) => {
+    
 
     return (
-        <form onSubmit={logout}>
-            <input className="button" type="submit" value="Log Out" />
-        </form>
+
+        <NavLink to='/'><button className="button" onClick={logout}>Log Out</button></NavLink>
     )
 }
 

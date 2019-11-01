@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import { getDoctors } from './actions/doctors.js';
@@ -27,14 +27,14 @@ class App extends Component {
             <NavBar />
             {this.props.currentUser ? 
             <div>
-            <Switch>
               <Route exact path='/' component={HomePage} />
               <Route exact path='/userProfile' render={() => (<UserProfile key={this.props.currentUser.doctors.length}/>)} />
               <Route exact path='/doctorList' component={CompleteDoctorList} />
-            </Switch>
             </div>
             :
-            <Route exact path='/' component={HomePage} />}
+            <div>
+              <Route exact path='/' component={HomePage} />
+            </div>}
         </div>
       </Router>
     );

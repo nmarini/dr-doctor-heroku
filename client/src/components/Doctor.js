@@ -112,7 +112,7 @@ class Doctor extends Component {
 
             <div>
 
-                <DoctorCard doctor={this.props.doctor} />
+                <DoctorCard key={this.props.doctor.uid} doctor={this.props.doctor} />
                 {this.state.currentNote ?
                 <h5>Updated Note: {this.state.currentNote}</h5>
                 :
