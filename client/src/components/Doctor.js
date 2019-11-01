@@ -23,7 +23,7 @@ class Doctor extends Component {
             let doctorInfo = {
                 last_name: this.props.doctor.profile.last_name,
                 uid: this.props.doctor.uid,
-                user_note: this.state.userNote,
+                user_note: this.state.currentNote,
                 user_id: this.props.currentUser.id
             }
 
@@ -115,7 +115,7 @@ class Doctor extends Component {
 
                 <DoctorCard key={this.props.doctor.uid} doctor={this.props.doctor} />
                 {this.state.userNote ?
-                <h5>Note: {this.state.userNote}</h5>
+                <div><h5 className="underlined">Note:</h5> <p className="text-color">{this.state.userNote}</p></div>
                 :
                 null}
                 {this.state.justSaved ?
