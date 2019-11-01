@@ -17,40 +17,6 @@ class DoctorList extends Component {
         this.props.getCurrentUser();
     }
 
-    // userDoctors = () => (
-    //     this.props.currentUser.doctors.map(doctor => {
-            
-    //         let userDoc = this.props.doctors.find(doc => (
-    //             doc.uid === doctor.uid
-    //         ))
-    //     userDoc.id = doctor.id 
-    //     userDoc.user_note = doctor.user_note
-    //     return userDoc
-            
-    //     })
-
-    // )
-
-    // ownsDoctor = (doctor) => {
-         
-    //     let result = this.props.currentUser.doctors.find(doc => doctor.uid === doc.uid)
-    //     return result ? true : false
-    // }
-    
-    // allDoctors = () => (
-    //     this.props.doctors.map(doctor => {
-    //         if (this.ownsDoctor(doctor)) {
-    //             let doc = this.props.currentUser.doctors.find(dr => dr.uid === doctor.uid)
-    //             doctor.user_note = doc.user_note
-    //             return doctor
-    //         } else {
-    //             return doctor
-    //         }
-    //     })
-    // )
-
-
-
     listDoctors = (doctors) => (
         doctors.map(doctor => 
             <li key={doctor.uid}>Dr. {doctor.profile.last_name} <button value={doctor.uid} onClick={this.handleClick}>give me the news!</button></li>
@@ -91,13 +57,10 @@ class DoctorList extends Component {
             <div className="row">
                 <div className="column">
                     <div className="doctorContainerList">
-                    {/* {this.props.doctors !== null && this.props.currentUser !== null ? */}
                         {this.props.userDoctors ? 
                             this.listUserDoctors(this.state.userDocs)
                         : 
                             this.listDoctors(this.props.allDoctors)}
-                        {/* :
-                            'still loading...'} */}
                     </div>
                 </div>
                 <div className="column">
