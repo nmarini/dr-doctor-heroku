@@ -8,8 +8,8 @@ class Doctor extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userNote: this.props.doctor.user_note ? this.props.doctor.user_note : '',
-            currentNote: this.props.doctor.user_note,
+            userNote: this.props.doctor.user_note ? this.props.doctor.user_note : null,
+            currentNote: '',
             justSaved: false
         }
     }

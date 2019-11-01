@@ -9,9 +9,8 @@ const UserCard = ({currentUser}) => {
 
     return (
         <div>
-            <h5 className="component-title">{currentUser.name}'s Profile</h5>
-            {doctorCount() === 0 ? 
-                <p>You have {doctorCount()} Doctor{doctorCount() > 1 ? 's in your list.': ' in your list.'}</p>
+            {doctorCount() !== 0 ? 
+                <p>{currentUser.name}, you have {doctorCount()} Doctor{doctorCount() > 1 ? 's in your list.': ' in your list.'}</p>
             : 
                 null}
         </div>

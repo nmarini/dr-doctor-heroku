@@ -10,10 +10,11 @@ class UserProfile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            name: '',
-            email: '',
+            name: this.props.currentUser.name,
+            email: this.props.currentUser.email,
             password: '',
-            exposeForm: false
+            exposeForm: false,
+            errors: null
         }
     }
 
@@ -33,13 +34,20 @@ class UserProfile extends Component {
         }
 
         fetch(`http://localhost:3000/api/v1/users/${this.props.currentUser.id}`, {
-            credentials: "include",
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(userInfo) 
-        }).then(this.props.getCurrentUser)
+                credentials: "include",
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(userInfo) 
+            }).then( res => {
+                    if (res.status !== 200) {
+                        alert('Please complete entire form!')
+                    } else {
+                        this.props.getCurrentUser()
+                    }
+                }
+        )
         this.setState({exposeForm: !this.state.exposeForm})
     }
 
@@ -120,6 +128,7 @@ class UserProfile extends Component {
         return (
             <div>
                 <div>
+                    <h5 className="component-title">Profile Page</h5>
                 <UserCard key={this.state.exposeForm}/>
                 <div>
                     <button className="edit-button" onClick={this.showForm}>{this.state.exposeForm ? "Hide Edit Form" : "Show Edit Form"}</button>
