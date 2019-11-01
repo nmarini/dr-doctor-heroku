@@ -13,8 +13,7 @@ class UserProfile extends Component {
             name: this.props.currentUser.name,
             email: this.props.currentUser.email,
             password: '',
-            exposeForm: false,
-            errors: null
+            exposeForm: false
         }
     }
 
@@ -124,12 +123,18 @@ class UserProfile extends Component {
 
     )
 
+    doctorCount = () => {
+        let count = 0;
+        this.props.currentUser.doctors.forEach(doc => count += 1)
+        return count 
+    }
+
     render() {
         return (
             <div>
                 <div>
                     <h5 className="component-title">Profile Page</h5>
-                <UserCard key={this.state.exposeForm}/>
+                    <UserCard doctorCount={this.doctorCount()} />
                 <div>
                     <button className="edit-button" onClick={this.showForm}>{this.state.exposeForm ? "Hide Edit Form" : "Show Edit Form"}</button>
                 </div>

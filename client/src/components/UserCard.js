@@ -1,16 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const UserCard = ({currentUser}) => {
-
-    const doctorCount = () => (
-        currentUser.doctors.legnth
-    )
+const UserCard = ({currentUser, doctorCount}) => {
 
     return (
-        <div>
-            {doctorCount() !== 0 ? 
-                <p>{currentUser.name}, you have {doctorCount()} Doctor{doctorCount() > 1 ? 's in your list.': ' in your list.'}</p>
+        <div>{console.log(doctorCount)}
+            {doctorCount !== 0 ? 
+                <p>{currentUser.name}, you have {doctorCount} Doctor{doctorCount > 1 ? 's in your list.': ' in your list.'}</p>
             : 
                 null}
         </div>

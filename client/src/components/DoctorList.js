@@ -40,7 +40,7 @@ class DoctorList extends Component {
         fetch(`http://localhost:3000/api/v1/doctors/${id}`, {
             credentials: "include",
             method: "DELETE"
-        })        
+        }).then(this.props.getCurrentUser)        
     }
 
     handleClick = event => {
