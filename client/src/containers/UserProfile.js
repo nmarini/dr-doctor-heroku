@@ -135,13 +135,11 @@ class UserProfile extends Component {
             
                 
                 {this.props.doctors ? 
-                    this.props.currentUser.doctors > 0 ?
+        
                     <div>
                         <h3>Your saved Doctors:</h3>
                             <DoctorList userDoctors={this.userDoctors()} />  
                     </div>
-                    :
-                    null
                 :  
                 'still loading...'}
             </div>
