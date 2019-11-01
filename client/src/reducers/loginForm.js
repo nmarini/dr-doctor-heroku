@@ -7,7 +7,9 @@ const updateLoginFormReducer = (state = initialState, action) => {
     switch (action.type) {
         case "UPDATE_LOGIN_FORM":
             return action.formData
-        default: 
+        case "CLEAR_LOGIN_FORM":
+            return initialState
+        default:          
             return state
     }
 
