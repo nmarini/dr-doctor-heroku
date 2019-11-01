@@ -85,13 +85,17 @@ class DoctorSearch extends Component {
             lastName: '',
             searchType: ''
         })
-        console.log(this.state)
-        console.log(this.state.chosenDocs)
     }
 
     handleOnChange = event => {
         this.setState({
             [event.target.name]: event.target.value
+        })
+    }
+
+    handleButton = () => {
+        this.setState({
+            chosenDocs: this.alphabetizeDocs()
         })
     }
 
@@ -130,6 +134,7 @@ class DoctorSearch extends Component {
 
                 />
             </form>
+            <button onClick={this.handleButton}>All Doctors</button>
             <div>
 
             </div>
