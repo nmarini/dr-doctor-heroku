@@ -22,7 +22,7 @@ class DoctorSearch extends Component {
     )
 
     namedDoctors = () => (
-        this.alphabetizeDocs().filter(doc => doc.profile.last_name.toLowerCase() === this.state.lastName.toLowerCase())
+        this.alphabetizeDocs().filter(doc => doc.profile.last_name.toLowerCase().includes(this.state.lastName.toLowerCase()))
     )
 
     ownsDoctor = (doctor) => {
@@ -114,6 +114,7 @@ class DoctorSearch extends Component {
             </label>
                 <input 
                     type="submit"
+                    className="button"
                     value="search"
                 />                
             </form>
@@ -130,11 +131,14 @@ class DoctorSearch extends Component {
                 </label>
                 <input 
                     type="submit"
+                    className="button"
                     value="sort!"
 
                 />
             </form>
-            <button onClick={this.handleButton}>Show All Doctors</button>
+            <div>
+                <button className="button" onClick={this.handleButton}>Show All Doctors</button>
+            </div>
             <div>
 
             </div>
