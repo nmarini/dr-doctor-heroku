@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import UserCard from '../components/UserCard';
 import DoctorList from '../components/DoctorList';
 import { getCurrentUser, clearCurrentUser } from '../actions/currentUser';
+import { NavLink } from 'react-router-dom';
 
 class UserProfile extends Component {
 
@@ -124,12 +125,7 @@ class UserProfile extends Component {
                 :
                     null }
                 <div>
-                    <form onSubmit={this.handleDelete} >
-                        <input 
-                            type="submit"
-                            value="Delete Your Account"
-                        />
-                    </form>
+                    <NavLink to="/"><button className="button" onClick={this.handleDelete}>Delete Your Account</button></NavLink>
                 </div>
                 </div>
             
