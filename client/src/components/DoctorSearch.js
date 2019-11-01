@@ -22,7 +22,7 @@ class DoctorSearch extends Component {
     )
 
     namedDoctors = () => (
-        this.alphabetizeDocs().filter(doc => doc.profile.last_name.toLowerCase().includes(this.state.lastName.toLowerCase()))
+        this.alphabetizeDocs().filter(doc => doc.profile.last_name.toLowerCase().startsWith(this.state.lastName.toLowerCase()))
     )
 
     ownsDoctor = (doctor) => {
