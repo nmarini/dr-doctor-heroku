@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 const UserCard = ({currentUser, doctorCount}) => {
 
     return (
-        <div>{console.log(doctorCount)}
+        <div>
             {doctorCount !== 0 ? 
                 <p>{currentUser.name}, you have {doctorCount} Doctor{doctorCount > 1 ? 's in your list.': ' in your list.'}</p>
             : 
