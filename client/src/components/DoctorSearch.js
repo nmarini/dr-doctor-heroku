@@ -134,7 +134,7 @@ class DoctorSearch extends Component {
 
                 />
             </form>
-            <button onClick={this.handleButton}>All Doctors</button>
+            <button onClick={this.handleButton}>Show All Doctors</button>
             <div>
 
             </div>
