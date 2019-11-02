@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import { getDoctors } from './actions/doctors.js';
 import UserProfile from './containers/UserProfile.js';
-import CompleteDoctorList from './containers/CompleteDoctorList.js';
+import DoctorSearch from './containers/DoctorSearch.js';
 import HomePage from './containers/HomePage.js';
 import NavBar from './components/NavBar.js';
 
@@ -29,7 +29,7 @@ class App extends Component {
             <div>
               <Route exact path='/' component={HomePage} />
               <Route exact path='/userProfile' render={() => (<UserProfile key={this.props.currentUser.doctors.length}/>)} />
-              <Route exact path='/doctorList' component={CompleteDoctorList} />
+              <Route exact path='/doctorList' component={DoctorSearch} />
             </div>
             :
             <div>

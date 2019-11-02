@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import DoctorList from './DoctorList';
+import DoctorList from '../components/DoctorList';
 
 class DoctorSearch extends Component {
 
@@ -8,7 +8,7 @@ class DoctorSearch extends Component {
         super(props)
         this.state = {
             lastName: "",
-            searchType: "",
+            searchType: "DEFAULT",
             chosenDocs: false
         }
     }
@@ -64,14 +64,16 @@ class DoctorSearch extends Component {
         }) 
 
         const uniqSpec = [...new Set(specialties)].sort()
-        return uniqSpec.map((spec, index) => <option key={index} value={spec}>{spec}</option>)      
+        return uniqSpec.map((spec, index) => <option key={index} name="searchType" value={spec} onClick={this.handleSortClick}>{spec}</option>)      
     }
 
     handleSortSubmit = (event) => {
         event.preventDefault();
+        
+        const chosen = this.state.searchType === 'DEFAULT' ? this.alphabetizeDocs() : this.specialtyDoctors()
 
         this.setState({
-            chosenDocs: this.specialtyDoctors(),
+            chosenDocs: chosen,
             lastName: ''
         })
 
@@ -93,63 +95,60 @@ class DoctorSearch extends Component {
         })
     }
 
-    handleButton = () => {
-        this.setState({
-            chosenDocs: this.alphabetizeDocs()
-        })
-    }
-
     render() {
         return (
             <div>
-            <form onSubmit={this.handleNameSubmit}>
-            <label>
-                Search by Last Name:
-                <input 
-                    type="text"  
-                    className="round-textbox"
-                    onChange={this.handleOnChange}
-                    name="lastName"
-                    value={this.state.lastName}
-                />
-            </label>
-                <input 
-                    type="submit"
-                    className="button"
-                    value="search"
-                />                
-            </form>
-            
-            <form onSubmit={this.handleSortSubmit}>
-            <label> 
-                    Sort by Specialty:
-                    <select name="searchType" className="button" value={this.state.searchType} onChange={this.handleOnChange}>
-                    {this.props.doctors !== null ?
-                    this.sortBySpecialty()
-                    :
-                    'still loading...'}
-                    </select>
+                <h5 className="component-title">Doctor List</h5>
+                <form onSubmit={this.handleNameSubmit}>
+                <label>
+                    Search by Last Name:
+                    <input 
+                        type="text"  
+                        className="round-textbox"
+                        onChange={this.handleOnChange}
+                        name="lastName"
+                        value={this.state.lastName}
+                    />
                 </label>
-                <input 
-                    type="submit"
-                    className="button"
-                    value="sort!"
+                    <input 
+                        type="submit"
+                        className="button"
+                        value="search"
+                    />                
+                </form>
 
-                />
-            </form>
-            <div>
-                <button className="button" onClick={this.handleButton}>Show All Doctors</button>
-            </div>
-            <div>
+                {this.props.doctors !== null ?
+                    <form onSubmit={this.handleSortSubmit}>
+                    <label> 
+                            Sort by Specialty:
+                            
+                            <select name="searchType" className="button" value={this.state.searchType} onChange={this.handleOnChange}>
+                            
+                                <option key={"00"} value={"DEFAULT"} >All Doctors</option>
+                                {this.sortBySpecialty()}
 
-            </div>
-            {this.props.doctors !== null && this.props.currentUser !== null ?
-                this.state.chosenDocs ? 
-                    <DoctorList key={this.state.chosenDocs} allDoctors={this.state.chosenDocs} />
+                            </select>
+                        </label>
+                        <input 
+                            type="submit"
+                            className="button"
+                            value="sort!"
+
+                        />
+                    </form>
                 :
-                    <DoctorList key={this.state.chosenDocs} allDoctors={this.alphabetizeDocs()} />
-            :
-                'still loading...'}
+                    null}
+                
+                <div>
+
+                </div>
+                {this.props.doctors !== null && this.props.currentUser !== null ?
+                    this.state.chosenDocs ? 
+                        <DoctorList key={this.state.chosenDocs} allDoctors={this.state.chosenDocs} />
+                    :
+                        <DoctorList key={this.state.chosenDocs} allDoctors={this.alphabetizeDocs()} />
+                :
+                    'still loading...'}
               
             </div>
         )
