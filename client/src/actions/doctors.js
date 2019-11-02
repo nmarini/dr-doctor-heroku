@@ -24,7 +24,6 @@ export const getDoctors = () => {
     return dispatch => {
         return fetch(resource_url
             , {
-            // credentials: "include",
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -41,23 +40,5 @@ export const getDoctors = () => {
     }
 }
 
-export const updateStoreDoctors = (docStore, uid = null) => {
-    console.log(uid)
-    const doc = docStore.find(dr => dr.uid === uid)
-    console.log(doc)
-    const updatedStore = docStore.map(doctor => {
-        if (doctor.uid === uid) {
-            doc.user_note = null
-            console.log(`doc:${doc.profile.last_name}`)
-            return doc
-        } else {
-            return doctor
-        }
-    })
-    console.log(updatedStore)
-    return dispatch => {
-        dispatch(addDoctors(updatedStore))
-        
-    }
-}
+
 

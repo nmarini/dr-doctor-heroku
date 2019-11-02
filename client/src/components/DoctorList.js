@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Doctor from '../components/Doctor';
 import { getCurrentUser } from '../actions/currentUser';
-import { updateStoreDoctors } from '../actions/doctors';
 
 class DoctorList extends Component {
     
@@ -26,23 +25,22 @@ class DoctorList extends Component {
 
     listUserDoctors = (doctors) => (
         doctors.map(doctor => 
-            <div className="underlined" key={doctor.uid}><h6>Dr. {doctor.profile.last_name}</h6><p><button className="button" value={doctor.uid} onClick={this.handleClick}>give me the news!</button><button className="warning-button" value={doctor.uid} onClick={this.handleDelete}>remove</button></p></div>
+            <div className="underlined" key={doctor.uid}><h6>Dr. {doctor.profile.last_name}</h6><p><button className="button" value={doctor.uid} onClick={this.handleClick}>give me the news!</button><button className="warning-button" value={doctor.id} onClick={this.handleDelete}>remove</button></p></div>
         )
     )
 
     handleDelete = (event) => {
-        const uid = event.target.value
+        const id = parseInt(event.target.value)
         const updatedDocs = this.state.userDocs.filter(doc => (
-                doc.uid !== uid
+                doc.id !== id
             ))
-        const doctor = this.state.userDocs.find(doc => doc.uid === uid)
         this.setState({
             userDocs: updatedDocs
         })
-        fetch(`http://localhost:3000/api/v1/doctors/${doctor.id}`, {
+        fetch(`http://localhost:3000/api/v1/doctors/${id}`, {
             credentials: "include",
             method: "DELETE"
-        }).then(this.props.getCurrentUser).then(this.props.updateStoreDoctors(this.props.doctors, uid))        
+        }).then(this.props.getCurrentUser)        
     }
 
     handleClick = event => {
@@ -82,5 +80,4 @@ const mapStateToProps = ({currentUser, doctors}) => {
     }
 }
 
-export default connect(mapStateToProps, {getCurrentUser, updateStoreDoctors})(DoctorList);
-
+export default connect(mapStateToProps, {getCurrentUser})(DoctorList);

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DoctorCard from './DoctorCard';
 import { getCurrentUser } from '../actions/currentUser';
-import { updateStoreDoctors } from '../actions/doctors';
 
 class Doctor extends Component {
 
@@ -11,7 +10,8 @@ class Doctor extends Component {
         this.state = {
             userNote: this.props.doctor.user_note ? this.props.doctor.user_note : null,
             currentNote: '',
-            justSaved: false
+            justSaved: false,
+            id: this.props.doctor.id || null
         }
     }
 
@@ -36,7 +36,7 @@ class Doctor extends Component {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(doctorInfo) 
-            }).then(this.props.updateStoreDoctors(this.props.doctors))
+            }).then(res => res.json()).then(doc => this.setState({id: doc.id}))
     }
 
     updateDoctor = (event) => {
@@ -46,8 +46,9 @@ class Doctor extends Component {
             uid: this.props.doctor.uid,
             user_note: this.state.currentNote
         }
+
         this.setState({userNote: this.state.currentNote, currentNote: ''})
-        return fetch(`http://localhost:3000/api/v1/doctors/${this.props.doctor.id}`, {
+        return fetch(`http://localhost:3000/api/v1/doctors/${this.state.id}`, {
                 credentials: "include",
                 method: "PATCH",
                 headers: {
@@ -115,17 +116,30 @@ class Doctor extends Component {
             <div>
 
                 <DoctorCard key={this.props.doctor.uid} doctor={this.props.doctor} />
-                {this.state.userNote ?
+                {this.state.userNote && this.ownsDoctor(this.props.doctor) ?
                 <div><h5 className="underlined">Note:</h5> <p className="text-color">{this.state.userNote}</p></div>
                 :
                 null}
+                
                 {this.state.justSaved ?
-                <p className="success">Saved to profile!</p>
-                :
+                    
+                        <p className="success">Saved to profile!</p>
+                        
+                : 
                     null}
-    
+                       
+                            {this.state.justSaved && this.state.userNote ?
+                                <div>
+                                    <label>
+                                    <h5 className="underlined">Note:</h5> 
+                                    <p className="text-color">{this.state.userNote}</p>
+                                    </label>
+                                </div>
+                   
+                            :
+                                null}    
             
-                {this.ownsDoctor(this.props.doctor) ? 
+                {this.ownsDoctor(this.props.doctor) || this.state.justSaved ? 
                     this.updateForm() 
                 : 
                     this.createForm()}
@@ -134,11 +148,10 @@ class Doctor extends Component {
     }
 }
 
-const mapStateToProps = ({currentUser, doctors}) => {
+const mapStateToProps = ({currentUser}) => {
     return {
-        currentUser,
-        doctors
+        currentUser
     }
 }
 
-export default connect(mapStateToProps, {getCurrentUser, updateStoreDoctors})(Doctor);  
+export default connect(mapStateToProps, {getCurrentUser})(Doctor);  
