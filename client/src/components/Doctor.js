@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import DoctorCard from './DoctorCard';
 import { getCurrentUser } from '../actions/currentUser';
+import { updateStoreDoctors } from '../actions/doctors';
 
 class Doctor extends Component {
 
@@ -35,7 +36,7 @@ class Doctor extends Component {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify(doctorInfo) 
-            })
+            }).then(this.props.updateStoreDoctors(this.props.doctors))
     }
 
     updateDoctor = (event) => {
@@ -133,10 +134,11 @@ class Doctor extends Component {
     }
 }
 
-const mapStateToProps = ({currentUser}) => {
+const mapStateToProps = ({currentUser, doctors}) => {
     return {
-        currentUser
+        currentUser,
+        doctors
     }
 }
 
-export default connect(mapStateToProps, {getCurrentUser})(Doctor);  
+export default connect(mapStateToProps, {getCurrentUser, updateStoreDoctors})(Doctor);  
