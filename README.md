@@ -33,7 +33,7 @@ A user is first directed to create an account or login.
 After a user is loged in, they are directed to the home page which describes what a user is able to do, and how the app works.
 
 Dr. Doctor contains a list of 100 Doctors from Boston, Massachusetts with varying backgrounds.  
-A user is able to search Doctors by last name, specialty, or by looking through the complete list.
+A user is able to search Doctors by last name, specialty, or by looking through the complete list of Doctors.
 
 A user is able to save Doctors to their profile to view at a later time.  Users can also add a note to their saved Doctors as an option.
 
