@@ -1,5 +1,6 @@
 # Dr. Doctor
-This app is designed to allow a user to 
+This app is designed to allow a user to view a list of Doctors from Boston, Massachusetts 
+with varying backgrounds. Users can view and save Doctor information to their profile. 
 
 ## Installation
 
