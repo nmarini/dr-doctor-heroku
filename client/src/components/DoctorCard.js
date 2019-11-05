@@ -24,8 +24,12 @@ const DoctorCard = ({doctor, note}) => {
     return (
         <div>
             <h1 className="component-title">Dr. {doctor.profile.last_name}</h1>
+            <h5 className="component-title">Title: {doctor.profile.title}</h5>
             <img src={doctor.profile.image_url} alt="profile_picture"/>
             <div className="DoctorCardProfile">
+            <p className="italic-p">
+                {doctor.profile.bio}
+            </p>
                 
             </div> 
             <div className="row">

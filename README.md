@@ -10,6 +10,9 @@ Run:
 bundle install
 
 Then Run:
+rake db:create
+
+Then Run:
 rake db:migrate
 
 Then Run:
