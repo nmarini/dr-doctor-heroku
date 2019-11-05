@@ -95,30 +95,8 @@ class DoctorSearch extends Component {
         })
     }
 
-    render() {
-        return (
-            <div>
-                <h5 className="component-title">Doctor List</h5>
-                <form onSubmit={this.handleNameSubmit}>
-                <label>
-                    Search by Last Name:
-                    <input 
-                        type="text"  
-                        className="round-textbox"
-                        onChange={this.handleOnChange}
-                        name="lastName"
-                        value={this.state.lastName}
-                    />
-                </label>
-                    <input 
-                        type="submit"
-                        className="button"
-                        value="search"
-                    />                
-                </form>
-
-                {this.props.doctors !== null ?
-                    <form onSubmit={this.handleSortSubmit}>
+    specialtyForm = () => (
+        <form onSubmit={this.handleSortSubmit}>
                     <label> 
                             Sort by Specialty:
                             
@@ -136,6 +114,40 @@ class DoctorSearch extends Component {
 
                         />
                     </form>
+    )
+
+    lastNameForm = () => (
+    
+        <form onSubmit={this.handleNameSubmit}>
+                <label>
+                    Search by Last Name:
+                    <input 
+                        type="text"  
+                        className="round-textbox"
+                        onChange={this.handleOnChange}
+                        name="lastName"
+                        value={this.state.lastName}
+                    />
+                </label>
+                    <input 
+                        type="submit"
+                        className="button"
+                        value="search"
+                    />                
+                </form>
+
+    )
+
+    render() {
+        return (
+            <div>
+                <h5 className="component-title">Doctor List</h5>
+
+                {this.props.doctors !== null ?
+                    <div>
+                        {this.lastNameForm()}
+                        {this.specialtyForm()}
+                        </div>
                 :
                     null}
                 

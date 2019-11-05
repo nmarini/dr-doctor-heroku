@@ -14,10 +14,10 @@ class HomePage extends Component {
                             <p>
                                 Please use the navigation bar to checkout Doctors, your Profile, or to Log Out
                             </p>
-                            <p>
-                                Dr. Doctor contains a list of Doctors with varying backgrounds.
+                            <p className="italic-p">
+                                <b>Dr. Doctor</b> contains a list of Doctors, from <b>Boston Massachusetts</b>, with varying backgrounds.
                                 <br/>
-                                Users are able to view Doctor information and save Doctors to their User Profile to view at a later time.
+                                Users are able to view Doctor information, and save Doctors to their User Profile with an optional note included to view at a later time.
                                 <br/>
                                 Users are able to search for Doctors by last name, specialty, or picking a Doctor from the complete list of Doctors.
                             </p>
