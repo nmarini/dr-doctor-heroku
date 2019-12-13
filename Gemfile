@@ -13,6 +13,7 @@ group :development do
 end
 group :production do
   gem 'pg'
+  gem 'bundler', '~> 2.0.1'
 end
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
