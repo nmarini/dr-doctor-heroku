@@ -12,6 +12,7 @@ group :development do
   gem 'sqlite3'
 end
 group :production do
+  gem 'bundler', '~> 2.0.1'
   gem 'pg'
 end
 # Use Puma as the app server
