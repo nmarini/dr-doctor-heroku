@@ -14,8 +14,10 @@ group :development do
 end
 group :production do
   gem 'bundler', '~> 2.0.1'
-  gem 'pg'
+  gem 'pg', '~> 0.18'
 end
+
+gem 'uglifier'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
