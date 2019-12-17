@@ -37,7 +37,7 @@ class DoctorList extends Component {
         this.setState({
             userDocs: updatedDocs
         })
-        fetch(`http://localhost:3000/api/v1/doctors/${id}`, {
+        fetch(`/api/v1/doctors/${id}`, {
             credentials: "include",
             method: "DELETE"
         }).then(this.props.getCurrentUser)        

@@ -29,7 +29,7 @@ class Doctor extends Component {
             }
 
             this.setState({userNote: this.state.currentNote, currentNote: '', justSaved: true})
-            return fetch("http://localhost:3000/api/v1/doctors", {
+            return fetch("/api/v1/doctors", {
                     credentials: "include",
                     method: "POST",
                     headers: {
@@ -48,7 +48,7 @@ class Doctor extends Component {
         }
 
         this.setState({userNote: this.state.currentNote, currentNote: ''})
-        return fetch(`http://localhost:3000/api/v1/doctors/${this.state.id}`, {
+        return fetch(`/api/v1/doctors/${this.state.id}`, {
                 credentials: "include",
                 method: "PATCH",
                 headers: {

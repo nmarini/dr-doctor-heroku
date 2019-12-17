@@ -32,7 +32,7 @@ class UserProfile extends Component {
             }
         }
 
-        fetch(`http://localhost:3000/api/v1/users/${this.props.currentUser.id}`, {
+        fetch(`/api/v1/users/${this.props.currentUser.id}`, {
                 credentials: "include",
                 method: "PATCH",
                 headers: {
@@ -52,7 +52,7 @@ class UserProfile extends Component {
 
     handleDelete = () => {
         this.props.clearCurrentUser();
-        fetch(`http://localhost:3000/api/v1/users/${this.props.currentUser.id}`, {
+        fetch(`/api/v1/users/${this.props.currentUser.id}`, {
             credentials: "include",
             method: "DELETE"
 
