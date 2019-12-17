@@ -3,15 +3,34 @@
   "version": "1.0.0",
   "homepage": "https://dr-doctor-app.herokuapp.com/",
   "main": "index.js",
-  "repository": "git@github.com:nmarini/dr-doctor-heroku.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/nmarini/dr-doctor-heroku.git"
+  },
   "author": "nmarini <nmarini44@gmail.com>",
   "scripts": {
     "build": "cd client && yarn install && yarn build && cd ..",
     "deploy": "cp -a client/build/. public/",
-    "postinstall": "yarn build && yarn deploy && echo 'Client built!'"
+    "postinstall": "yarn build && yarn deploy && echo 'Client built!'",
+    "start": "node server.js"
   },
   "license": "MIT",
   "dependencies": {
     "react-router-dom": "^5.1.2"
-  }
+  },
+  "description": "This app is designed to allow a user to view a list of Doctors from Boston, Massachusetts  with varying backgrounds. Users can view and save Doctor information to their profile.",
+  "bugs": {
+    "url": "https://github.com/nmarini/dr-doctor-heroku/issues"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "keywords": []
 }
