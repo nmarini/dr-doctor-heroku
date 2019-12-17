@@ -16,8 +16,8 @@ export const clearCurrentUser = () => {
 // asynchronous action creators
 export const login = credentials => {
     return dispatch => {
-        // return fetch("http://localhost:3000/api/v1/login", {
-            return fetch("/api/v1/login", {
+        return fetch("http://localhost:3000/api/v1/login", {
+            // return fetch("/api/v1/login", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -41,8 +41,8 @@ export const signup = credentials => {
         const userInfo = {
             user: credentials
         }
-        // return fetch("http://localhost:3000/api/v1/signup", {
-            return fetch("/api/v1/signup", {
+        return fetch("http://localhost:3000/api/v1/signup", {
+            // return fetch("/api/v1/signup", {
             credentials: "include",
             method: "POST",
             headers: {
@@ -64,8 +64,8 @@ export const signup = credentials => {
 export const logout = () => {
     return (dispatch) => {
         dispatch(clearCurrentUser());
-        // return fetch("http://localhost:3000/api/v1/logout", {
-            return fetch("/api/v1/logout", {
+        return fetch("http://localhost:3000/api/v1/logout", {
+            // return fetch("/api/v1/logout", {
             credentials: "include",
             method: "DELETE"
 
@@ -75,8 +75,8 @@ export const logout = () => {
 
 export const getCurrentUser = () => {
     return dispatch => { 
-        // return fetch("http://localhost:3000/api/v1/get_current_user", {
-            return fetch("/api/v1/get_current_user", {
+        return fetch("http://localhost:3000/api/v1/get_current_user", {
+            // return fetch("/api/v1/get_current_user", {
             credentials: "include",
             method: "GET",
             headers: {
