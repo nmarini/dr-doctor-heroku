@@ -8,14 +8,14 @@ gem 'rails', '~> 5.2.3'
 gem 'sass-rails'
 # Use sqlite3 as the database for Active Record
 # gem 'sqlite3'
-# gem 'pg'
-group :development do
-  gem 'sqlite3'
-end
-group :production do
-  gem 'bundler', '~> 2.0.1'
-  gem 'pg', '~> 0.18'
-end
+gem 'pg'
+# group :development do
+#   gem 'sqlite3'
+# end
+# group :production do
+#   gem 'bundler', '~> 2.0.1'
+#   gem 'pg', '~> 0.18'
+# end
 
 gem 'uglifier'
 # Use Puma as the app server
