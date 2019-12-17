@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getCurrentUser } from './actions/currentUser.js';
 import { getDoctors } from './actions/doctors.js';
@@ -18,7 +18,7 @@ class App extends Component {
 
   render() {
     return (
-      <Switch>
+      <Router>
         <div className="App">
           <div className="main-title">
             <h1>Dr. Doctor</h1>
@@ -36,7 +36,7 @@ class App extends Component {
               <Route exact path='/' component={HomePage} />
             </div>}
         </div>
-      </Switch>
+      </Router>
     );
   }
 }
