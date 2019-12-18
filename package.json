@@ -16,6 +16,9 @@
   },
   "license": "MIT",
   "dependencies": {
+    "express": "^4.17.1",
+    "express-favicon": "^2.0.1",
+    "path": "^0.12.7",
     "react-router-dom": "^5.1.2"
   },
   "description": "This app is designed to allow a user to view a list of Doctors from Boston, Massachusetts  with varying backgrounds. Users can view and save Doctor information to their profile.",
