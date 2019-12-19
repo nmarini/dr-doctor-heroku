@@ -27,7 +27,7 @@ class App extends Component {
             <NavBar />
             {this.props.currentUser ? 
             <div>
-              <Route exact path='/' component={HomePage} />
+              <Route path='/' component={HomePage} />
               <Route exact path='/userProfile' render={() => (<UserProfile key={this.props.currentUser.doctors.length}/>)} />
               <Route exact path='/doctorList' component={DoctorSearch} />
             </div>
