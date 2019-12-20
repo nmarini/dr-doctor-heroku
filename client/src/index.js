@@ -8,3 +8,4 @@ require('dotenv').config();
 
 ReactDOM.render(<Provider store={ store }><App /></Provider>, document.getElementById('root'));
 
+serviceWorker.register();
