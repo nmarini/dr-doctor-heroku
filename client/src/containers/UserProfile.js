@@ -72,6 +72,12 @@ class UserProfile extends Component {
         })
     }
 
+    showDelete = () => {
+        this.setState({
+            exposeDelete: !this.state.exposeDelete
+        })
+    }
+
     updateForm = () => (
         <form onSubmit={this.handleOnSubmit}>
             <input 
