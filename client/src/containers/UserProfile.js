@@ -150,7 +150,7 @@ class UserProfile extends Component {
                 :
                     null }
                 
-                
+                <button className="warning-button" onClick={this.showDelete}>Delete Your Account</button>
                     {this.state.exposeDelete ? <div><NavLink to="/"><button className="warning-button" onClick={this.handleDelete}>Yes</button></NavLink><button className="save-button" onClick={this.showDelete}>No</button><div> : null }
                 
                 </div>
