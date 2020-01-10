@@ -149,10 +149,10 @@ class UserProfile extends Component {
                     this.updateForm()
                 :
                     null }
-                <div>
-
-                    {this.state.exposeDelete ? <NavLink to="/"><button className="warning-button" onClick={this.handleDelete}>Delete Your Account</button></NavLink> : null }
-                </div>
+                
+                
+                    {this.state.exposeDelete ? <div><NavLink to="/"><button className="warning-button" onClick={this.handleDelete}>Yes</button></NavLink><button className="save-button" onClick={this.showDelete}>No</button><div> : null }
+                
                 </div>
             
                 
