@@ -13,7 +13,8 @@ class UserProfile extends Component {
             name: this.props.currentUser.name,
             email: this.props.currentUser.email,
             password: '',
-            exposeForm: false
+            exposeForm: false,
+            exposeDelete: false
         }
     }
 
@@ -143,6 +144,7 @@ class UserProfile extends Component {
                 :
                     null }
                 <div>
+
                     {this.state.exposeDelete ? <NavLink to="/"><button className="warning-button" onClick={this.handleDelete}>Delete Your Account</button></NavLink> : null }
                 </div>
                 </div>
